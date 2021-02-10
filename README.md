@@ -1,9 +1,9 @@
 # Deadline
 
-#### Overview
+### Overview
 *Deadline* is an application that allows you to conquer your next programming project by creating automatically generated development lifecycle schedules
 
-#### Minimum viable product
+### Minimum viable product
 
 An app that allows you to input different projects, tasks associated with each project, and then uses this information to automatically generate a dynamic project schedule
 
@@ -21,7 +21,7 @@ Other features:
 - Creates *aesthetic* graphs depicting project progress for motivation
 - Ability to invite other users to your project
 
-#### Potential Stretch Goals
+### Potential Stretch Goals
 
 ##### Can be chosen by team
 
@@ -38,10 +38,10 @@ Other features:
      - Integrate with GitHub using the [GitHub API](https://docs.github.com/en/free-pro-team@latest/rest)
      - Social feature that allows you to show off your progress to other users of the app
 
-#### Tech Stack
+### Tech Stack
 ##### Frontend
 
-######[React](https://reactjs.org/)
+###### [React](https://reactjs.org/)
 
 ##### Backend
 
@@ -50,7 +50,7 @@ Other features:
 - [MongoDB](mongodb.com)
 - [Firebase](https://firebase.google.com/)
 
-#### Software
+### Software
 
 - [Git Bash](https://git-scm.com/downloads)
     - Necessary for working with command line Git on a Windows computer
@@ -61,7 +61,7 @@ Other features:
 - [Visual Studio Code](https://code.visualstudio.com/)
     - Useful IDE with lots of plugins to make your development easier
 
-#### Learning Resources
+### Learning Resources
 Look through all of these resources at the beginning of the semester!
 - [How to be successful in ACM Projects](https://docs.google.com/document/d/18Zi3DrKG5e6g5Bojr8iqxIu6VIGl86YBSFlsnJnlM88/edit?usp=sharing)
 -   [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
