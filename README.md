@@ -39,9 +39,10 @@ Other features:
      - Social feature that allows you to show off your progress to other users of the app
 
 ### Tech Stack
+
 ##### Frontend
 
-###### [React](https://reactjs.org/)
+- [React](https://reactjs.org/)
 
 ##### Backend
 
