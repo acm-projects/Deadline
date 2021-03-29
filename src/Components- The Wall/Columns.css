@@ -1,0 +1,118 @@
+.next {
+    position: absolute;
+    top: 415px;
+    background-color: #AA1E1E;
+    width: 22%;
+    right: 77.5%;
+    font-size: 30px;
+    font-family: Magra, sans-serif;
+    color: white;
+    flex-direction: row;
+}
+
+.next2 {
+    position: absolute;
+    top: 460px;
+    background-color: #db7d7d;
+    width: 22%;
+    height: 500px;
+    right:77.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: black;
+    flex-direction: row;
+}
+
+.progress1 {
+    flex-direction: row;
+    top: 415px;
+    position: absolute;
+    background-color: #7a6f24;
+    width: 22%;
+    left: 25.5%;
+    font-size: 30px;
+    font-family: Magra, sans-serif;
+    color: white;
+}
+
+.progress2 {
+    position: absolute;
+    background-color: #fff392;
+    width: 22%;
+    top: 460px;
+    height: 500px;
+    left: 25.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: black;
+    flex-direction: row;
+}
+
+.complete {
+    flex-direction: row;
+    position: absolute;
+    top: 415px;
+    background-color: #253b1a;
+    width: 22%;
+    left: 52.5%;
+    font-size: 30px;
+    font-family: Magra, sans-serif;
+    color: white;
+    justify-content: center;
+}
+
+.complete2 {
+    position: absolute;
+    background-color: #b4d48b;
+    width: 22%;
+    top:460px;
+    height: 500px;
+    left: 52.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: black;
+    flex-direction: row;
+}
+
+.Notes {
+    flex-direction: row;
+    position: absolute;
+    top: 415px;
+    background-color: #5d4a17;
+    width: 22%;
+    left: 77.5%;
+    font-size: 30px;
+    font-family: Magra, sans-serif;
+    color: white;
+    justify-content: center;
+}
+
+.Notes2 {
+    position: absolute;
+    background-color: #ffdd95;
+    width: 22%;
+    top: 460px;
+    height: 500px;
+    left: 77.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: black;
+    flex-direction: row;
+}
+
+.todoListMain {
+    position: relative;
+    font-size: 17.5px;
+    font-family: Magra, sans-serif;
+    color: black;
+    top: 7px;
+}
+
+.todo {
+    background-color: #3b1818;
+    font-family: Magra, sans-serif;
+    font-size: 14pt;
+    color: white;
+    height: auto;
+    width: fit-content;
+}

@@ -1,0 +1,16 @@
+.general {
+    position: relative;
+    color: white;
+    top: 60px;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background-color: #122129;
+    font-size: 16pt;
+    font-family: Magra, sans-serif;
+}
+
+.test {
+    color: white;
+}
+
