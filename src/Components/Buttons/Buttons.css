@@ -1,0 +1,19 @@
+.style 
+ {
+    
+    padding: 50px;
+    
+    font-family: Magra, sans-serif;
+    color: pink;
+    background-color: pink;
+ }
+
+ .styleRight
+ {
+    display: flex;
+   
+    padding-right: 50%;
+    font-family: Magra, sans-serif;
+    color: black;
+    background-color: white;
+ }
