@@ -6,6 +6,16 @@
 }
 
 .toolbar {
+  position: relative;
   height: 500px;
+  justify-items: center;
+  align-content: center;
   background-color: #c5c5c5;
+}
+
+
+.logo {
+  position: absolute;
+  left: 31%;
+  width: 70vh;
 }

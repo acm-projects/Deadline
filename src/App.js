@@ -1,55 +1,39 @@
 import './App.css';
-import DenseAppBar from "./Components/Nav Bar/NavBar";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
-import logo from './Deadline-png.png';
-import Typography from '@material-ui/core/Typography';
-import CustomizedButtons from "./Components/Buttons/Buttons"
-import AboutUs from "./Components/About Us/AboutUs";
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Firebase from "firebase";
 import config from "./config";
-
-let classes = {
-    logo: {
-        margin: 'auto',
-        textAlign: 'center',
-        maxWidth: '500%',
-        maxHeight: '520%',
-        minHeght: '410%',
-    },
-    logoHorizontallyCenter: {
-        position: 'absolute',
-        left: '50%',
-        top: '50%', 
-        left: '50%',
-        right: '25%',
-        transform: 'translate(-70%, -50%)',
-        colour: '#1A4645'
-    }
-};
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import TheWall from "./Components- The Wall/TheWall";
+import CalendarMain from "./Components- Calendar/CalendarMain";
+import HomePage from "./Components-Homepage/HomePage";
 
 function App() {
   return (
-    <div className="App">
-      <DenseAppBar/>
-        <AppBar position="flex"> 
-            <Toolbar variant="dense" className="toolbar">
-                <center>
-                <div style={classes.logoHorizontallyCenter}>
-                    <img src={logo} className={classes.logo} alt="this is alt " />
+      <Router>
+          <Switch>
+              <div>
+              <Route path="/home">
+                  <HomePage/>
+              </Route>
+              </div>
+            </Switch>
 
+            <Switch>
+                <div>
+                <Route path="/thewall">
+                    <TheWall/>
+                </Route>
                 </div>
-                </center>
-            </Toolbar>
-            
-        </AppBar>
-        <CustomizedButtons/>
-        <AboutUs/>
-    </div>
+            </Switch>
 
+          <Switch>
+              <div>
+                  <Route path="/calendar">
+                    <CalendarMain/>
+                  </Route>
+              </div>
+          </Switch>
+      </Router>
   );
 }
 

@@ -1,0 +1,22 @@
+.header {
+    position: relative;
+    margin-top: 50px;
+    font-family: Raleway, sans-serif;
+    font-size: 50px;
+    color: white;
+    height: 100%;
+}
+
+.stylee {
+    position: relative;
+    font-family: Magra, sans-serif;
+    font-size: 20px;
+    color: white;
+    line-height: 2;
+    height: 100%;
+}
+
+.boxs {
+    background-color: #30475E;
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+.color-thewall {
+    background-color:#30475E;
+    font-family: Magra, sans-serif;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    position: -ms-device-fixed;
+}
+
+.bottom {
+    position: absolute;
+    background-color: #30475E;
+    top: 125%;
+    height: 100px;
+    width: 100%;
+}
