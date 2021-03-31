@@ -1,12 +1,14 @@
 .style
 {
     display: flex;
-    left: 20%;
+    height: 80px;
+    width: 150px;
+    left: 30%;
     font-family: Magra, sans-serif;
     color: black;
     background-color: white;
     position: absolute;
-    top: 30px;
+    top: 40px;
     animation-name: load;
     animation-fill-mode: forwards;
     animation-delay: 0s;
@@ -15,7 +17,9 @@
 
 .styles
 {
-    right: 20%;
+    right: 30%;
+    height: 80px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +27,7 @@
     color: black;
     background-color: white;
     position: absolute;
-    top: 30px;
+    top: 40px;
     animation-name: load;
     animation-fill-mode: forwards;
     animation-delay: 0s;

@@ -23,6 +23,16 @@
     flex-direction: row;
 }
 
+.task {
+    position: relative;
+    top: 30px;
+    background-color: #bcbcbc;
+    color: black;
+    width: 90%;
+    height: fit-content;
+    font-size: 20px;
+}
+
 .progress1 {
     flex-direction: row;
     top: 415px;
