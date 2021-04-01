@@ -13,7 +13,7 @@ function App() {
       <Router>
           <Switch>
               <div>
-              <Route path="/home">
+              <Route exact path="/">
                   <HomePage/>
               </Route>
               </div>
@@ -21,7 +21,7 @@ function App() {
 
             <Switch>
                 <div>
-                <Route path="/thewall">
+                <Route exact path="/thewall">
                     <TheWall/>
                 </Route>
                 </div>
@@ -29,7 +29,7 @@ function App() {
 
           <Switch>
               <div>
-                  <Route path="/calendar">
+                  <Route exact path="/calendar">
                     <CalendarMain/>
                   </Route>
               </div>

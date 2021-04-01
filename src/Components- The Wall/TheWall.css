@@ -20,3 +20,10 @@
     color: white;
     font-family: Magra, sans-serif;
 }
+
+.date {
+    position: relative;
+    background-color: #1A4645;
+    height: 100%;
+    width: 10%;
+}
