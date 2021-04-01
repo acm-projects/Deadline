@@ -1,0 +1,47 @@
+.bg{
+    background-color: #EEE9E9;
+    height: 100%;
+}
+
+.headerPrompt {
+    position: center;
+    font-family: Raleway, sans-serif;
+    font-size: 40px;
+    color: white;
+    height: 40%;
+    vertical-align: center;
+    line-height: 3.5;
+   
+}
+.subHeading {
+    position: center;
+    font-family: Raleway, sans-serif;
+    font-size: 36px;
+    color: black;
+    height: 40%;
+    vertical-align: center;
+    line-height: 1.5;
+   
+}
+.promptStatement {
+    font-size: x-large;
+    color: black;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-family: Raleway, sans-serif;
+    align-self: right;
+}
+.input {
+    font-size: 20px;
+    color: black;
+    padding: 20px;
+    column-span: initial;
+    
+}
+.biginput {
+    font-size: 20px;
+    color: black;
+    padding-left: 20px;
+    
+}

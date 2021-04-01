@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import TheWall from "./Components- The Wall/TheWall";
 import CalendarMain from "./Components- Calendar/CalendarMain";
 import HomePage from "./Components-Homepage/HomePage";
+import Newproject from "./Componenets-Newproject/Newproject";
 
 function App() {
   return (
@@ -33,6 +34,13 @@ function App() {
                   </Route>
               </div>
           </Switch>
+          <Switch>
+                <div>
+                  <Route path="/newproject">
+                    <Newproject/>
+                  </Route>
+               </div>
+              </Switch>
       </Router>
   );
 }
