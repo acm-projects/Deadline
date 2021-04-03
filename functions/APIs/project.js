@@ -1,4 +1,5 @@
 const { db } = require('../util/admin');
+//var fieldValue = firebase.firestore.FieldValue;
 
 exports.getAllProjects = (request, response) => {
 	db
@@ -8,12 +9,14 @@ exports.getAllProjects = (request, response) => {
 		.then((data) => {
 			let projectInfo = [];
 			data.forEach((doc) => {
+                
 			    projectInfo.push({
                     projectId: doc.id,
                     projectName: doc.data().projectName,
 					projectDesc: doc.data().projectDesc,
 					dateCreate: doc.data().dateCreate,
-                    deadline: doc.data().deadline
+                    deadline: doc.data().deadline,
+                    tasks: doc.data().tasks
 				});
 			});
 			return response.json(projectInfo);
@@ -37,9 +40,16 @@ exports.postOneProject = (request, response) => {
         projectName: request.body.projectName,
         projectDesc: request.body.projectDesc,
         dateCreate: new Date().toISOString(),
-        deadline: request.body.deadline
+        deadline: request.body.deadline,
+        tasks: request.body.tasks
     
     }
+
+   /* const newTask = {
+        taskName: request.body.taskName,
+        taskComplexity: request.body.taskComplexity,
+
+    }*/
     db
         .collection('projectInfo')
         .add(newProject)
