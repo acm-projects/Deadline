@@ -8,14 +8,29 @@
 .toolbar {
   position: relative;
   height: 500px;
-  justify-items: center;
-  align-content: center;
-  background-color: #c5c5c5;
+  background-color: #1A4645;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .logo {
   position: absolute;
-  left: 31%;
-  width: 70vh;
+  left: 45%;
+  top: 565px;
+}
+
+.title {
+  color: white;
+  font-size: 110px;
+  font-family: Raleway, sans-serif;
+}
+
+.last-box {
+  background-color: #30475E;
+  height: 50px;
+  position: relative;
+  bottom: 20px;
 }
