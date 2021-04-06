@@ -1,6 +1,39 @@
 const { db } = require('../util/admin');
 //var fieldValue = firebase.firestore.FieldValue;
 
+/*
+async function printProjects() {
+    try{
+        const projectsRef = db.collection('projectInfo');
+        const snapshot = await projectsRef.get();
+        snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        console.log("\n");
+        });
+    }
+    catch (err) {
+        console.log('Error getting documents', err);
+    }
+}
+
+printProjects();
+*/
+async function printProjectTasks() {
+    try{
+        const projectsRef = db.collection('projectInfo');
+        const snapshot = await projectsRef.get();
+        snapshot.forEach(doc => {
+        console.log(doc.data().projectName, '=>', doc.data().tasks);
+        console.log("\n");
+        });
+    }
+    catch (err) {
+        console.log('Error getting documents', err);
+    }
+}
+
+printProjectTasks();
+
 exports.getAllProjects = (request, response) => {
 	db
 		.collection('projectInfo')
