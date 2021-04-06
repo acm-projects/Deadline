@@ -15,6 +15,16 @@
   align-items: center;
 }
 
+.newprojectToolbar{
+  position: relative;
+  height: 150px;
+  justify-items: center;
+  align-content: center;
+  background-color: #1A4645;
+ 
+  ;
+}
+
 
 .logo {
   position: absolute;
