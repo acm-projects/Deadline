@@ -13,6 +13,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
 import Newtask from './Newtask';
+import {withStyles} from '@material-ui/core/styles';
 
 
 
@@ -27,35 +28,62 @@ export default function Newproject() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const ColorButton = withStyles((theme) => ({
+      root: {
+          color: 'black',
+          backgroundColor:'yellow',
+          fontFamily: 'Magra',
+          fontSize: '12px',
+          marginTop: '20px',
+          '&:hover': {
+              backgroundColor: 'green',
+          },
+      },
+  }))(Button);
+  
   
         return (
-            <div className='bg' >
-               
+           
+               <div class = 'bg'>
               <DenseAppBar/>
+
+
              <Box className="newprojectToolbar" color='red'>
                      <header className='headerPrompt'><center>Welcome! Let's get you started</center></header>
             </Box>
+           
              <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
-                    <form className='input' noValidate autoComplete="off">
-                             <TextField id="standard-basic" label="Project Name" />
-                    </form>
-                    <Typography className='promptStatement'><b>What is your estimated Deadline</b></Typography>
-                    <form className='input' noValidate autoComplete="off">
-                             <TextField id="standard-basic" label="MM/DD/YYYY" />
-                    </form>
+             <div className='bg' style={{
+              display: 'right',
+              alignItems: 'right',
+              flexWrap: 'right',
+          }} >
+            <form className='input' noValidate autoComplete="off">
+           
+              <TextField id="standard-basic" variant="filled" label="Project Name" />
+              
+             <span>
+             <Typography className='promptStatement'><b>What is your estimated Deadline</b></Typography>
+                     <TextField id="standard-basic" variant="filled" label="MM/DD/YYYY" /></span>
+                     </form>
+                     </div>
 
-                    <Typography className='promptStatement'><b>Tell us a bit about your project</b></Typography>
+                    <Typography className='promptStatement'><b>Tell us a bit about your project!</b></Typography>
                     <form className='biginput' noValidate autoComplete="off">
                              <TextField id="standard-multiline-static"
-                             
-          
+
+                             variant="filled"
           multiline
           rows={4}
           defaultValue="Project description" />
                     </form>
+                   
                     <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
                     <Newtask />
-                   
+                    <ColorButton className='style'>
+                    Add subtask or checklist for this specific task
+                </ColorButton>
             </div>
             );
     }
