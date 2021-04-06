@@ -6,14 +6,16 @@ import App from "../App";
 import TheWall from "./TheWall";
 import history from './history';
 
+
+
 export default class Routes extends Component {
     render() {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route path="/home" exact component={App} />
-                    <Route path="/thewall" component={TheWall} />
-                    <Route path="/calendar" component={CalendarMain} />
+                    <Route exact path="/" component={() => <App/>} />
+                    <Route exact path="/thewall" component={() => <TheWall/>} />
+                    <Route exact path="/calendar" component={() => <CalendarMain/>} />
                 </Switch>
             </Router>
         )
