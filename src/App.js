@@ -2,37 +2,39 @@ import './App.css';
 import React from "react";
 import Firebase from "firebase";
 import config from "./config";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
+import {Router} from 'react-router-dom'
 import TheWall from "./Components- The Wall/TheWall";
 import CalendarMain from "./Components- Calendar/CalendarMain";
 import HomePage from "./Components-Homepage/HomePage";
+import Newproject from "./Componenets-Newproject/Newproject";
+import history from "./Components- The Wall/history";
 
 function App() {
   return (
-      <Router>
+      <Router history={history}>
           <Switch>
               <div>
-              <Route exact path="/">
-                  <HomePage/>
-              </Route>
+              <Route exact path="/" component={HomePage}/>
               </div>
             </Switch>
 
             <Switch>
                 <div>
-                <Route exact path="/thewall">
-                    <TheWall/>
-                </Route>
+                <Route path="/thewall" component={TheWall}/>
                 </div>
             </Switch>
 
           <Switch>
               <div>
-                  <Route exact path="/calendar">
-                    <CalendarMain/>
-                  </Route>
+                  <Route path="/calendar" component={CalendarMain}/>
               </div>
           </Switch>
+          <Switch>
+                <div>
+                  <Route path="/newproject" component={Newproject}/>
+               </div>
+              </Switch>
       </Router>
   );
 }
