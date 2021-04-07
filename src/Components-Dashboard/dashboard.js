@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
-
+import { positions } from '@material-ui/system';
 import {withStyles} from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
 
@@ -56,12 +56,15 @@ export default function Dashboard() {
              <Box className="dashboardToolbar" >
                      <header className='headerPrompt' verticalalign='center'>Project Name </header>
                      <Typography align='right'>Expected Deadline Date</Typography>
-                     <Box className="today2"> <Typography align='left'>1. Create wireframes</Typography></Box>
-             </Box>
+                     </Box>
+                  <div className="blankSection"> <Box className="today2" id="tasks-today"> <Typography align='left'>1. Create wireframes</Typography></Box>
+             
              <Box className="today"><center>Tasks for today</center></Box>
-             <Box className="progress1"><center>Current task</center></Box>
-             <Box className="progress2"><center>Tasks for today</center></Box>
-             <LinearWithValueLabel/>
+             <Box className="progress3"><center>Current task</center></Box>
+             <Box className="progress4"><center>Tasks for today</center></Box>
+             </div>  
+             <div className="bottomSection"><LinearWithValueLabel /></div>
+             
 
 
             </div>

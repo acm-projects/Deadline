@@ -60,3 +60,19 @@
     background-color: #1A4645;
     ;
   }
+
+  .blankSection{
+    background-color:white;
+    height: 500px;
+
+  }
+
+  .bottomSection{
+      position: bottom;
+      height: 150px;
+      vertical-align: bottom;
+      justify-items: center;
+    align-content: bottom;
+    background-color: #d6d4bd;
+
+  }
