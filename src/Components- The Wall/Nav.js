@@ -32,7 +32,6 @@ export default function DenseAppBar() {
     return (
         <div className={classes.root}>
             <Toolbar variant="dense" className="color-thewall">
-                {/*<center>Home | Calendar View | Add Tasks | Sharing Options | The Wall | Help | Change Project</center>*/}
                 <ColorButton onClick={() => history.push('/')}>Home</ColorButton>
                 <ColorButton onClick={() => history.push('/calendar')}>Calendar View</ColorButton>
                 <ColorButton>Add Tasks</ColorButton>

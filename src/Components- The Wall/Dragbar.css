@@ -1,0 +1,45 @@
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.tasks {
+    list-style: none;
+    padding-left: 0;
+    font-family: Magra, sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 25px;
+}
+
+.tasks li {
+    display: flex;
+    align-items: center;
+    padding: .3em .5em .3em .3em;
+    margin-bottom: 1em;
+    font-family: Magra, sans-serif;
+    background-color: #C4C4C4;
+    color: black;
+}
+
+.tasks p {
+    max-width: none;
+    font-weight: bold;
+    margin: 0;
+    font-family: Magra, sans-serif;
+}
+
+.tasks-thumb {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    background-color: #e8e8e8;
+    padding: .5em;
+    margin-right: .5em;
+    font-family: Magra, sans-serif;
+}

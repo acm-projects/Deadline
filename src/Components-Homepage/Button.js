@@ -24,7 +24,7 @@ export default function CustomizedButtons() {
     return (
         <div>
             <center>
-                <ColorButton onClick={() => history.push('/newproject')}className='style'>
+                <ColorButton className='style' onClick={() => history.push('/newproject')}>
                     New Project
                 </ColorButton>
                 <img className="logo" src={logo} alt="Image cannot be loaded" />
