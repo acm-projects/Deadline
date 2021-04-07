@@ -37,6 +37,7 @@ export default function DenseAppBar() {
                 <ColorButton onClick={() => history.push('/calendar')}>Calendar View</ColorButton>
                 <ColorButton>Add Tasks</ColorButton>
                 <ColorButton>Sharing Options</ColorButton>
+                <ColorButton onClick={() => history.push('/newproject')}>New Project</ColorButton>
                 <ColorButton onClick={() => history.push('/thewall')}>The Wall</ColorButton>
                 <ColorButton>Help</ColorButton>
                 <ColorButton>Change Project</ColorButton>

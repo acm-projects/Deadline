@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import "./Button.css"
 import logo from '../Deadline-png.png';
 import "../App.css"
+import history from "./history";
 
 const ColorButton = withStyles((theme) => ({
     root: {
@@ -23,7 +24,7 @@ export default function CustomizedButtons() {
     return (
         <div>
             <center>
-                <ColorButton className='style'>
+                <ColorButton onClick={() => history.push('/newproject')}className='style'>
                     New Project
                 </ColorButton>
                 <img className="logo" src={logo} alt="Image cannot be loaded" />

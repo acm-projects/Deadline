@@ -11,9 +11,14 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
+import { spacing } from '@material-ui/system';
+
 
 export default function Newtask() {
 
+  const theme = {
+    spacing: 8,
+  }
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -36,7 +41,7 @@ export default function Newtask() {
                
 </form>
 <Typography className='promptStatement'><b>2. What kind of task is it</b></Typography>
-<Button aria-controls="simple-menu" aria-haspopup="true" className='input' onClick={handleClick}>
+<Button aria-controls="simple-menu" m={2} aria-haspopup="true" className='inputBox' onClick={handleClick} color = "primary" variant = "contained" m={2}>
                         Task List
                         </Button>
                         <Menu
@@ -45,6 +50,7 @@ export default function Newtask() {
                         keepMounted
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
+                        
                         >
                         <MenuItem onClick={handleClose}>1. Presentation</MenuItem>
                         <MenuItem onClick={handleClose}>2. Coding</MenuItem>
@@ -55,7 +61,7 @@ export default function Newtask() {
         Difficulty Scale
       </Typography>
       <Slider
-        defaultValue={0.00000005}
+        defaultValue={0.5}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-small-steps"
         step={1}
@@ -63,8 +69,9 @@ export default function Newtask() {
         min={0}
         max={5}
         valueLabelDisplay="auto"
-        
+        id="difficulty-slider"
       />
+    
                         </div>
         );
 }

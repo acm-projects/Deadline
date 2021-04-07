@@ -7,6 +7,8 @@ import TheWall from "./Components- The Wall/TheWall";
 import CalendarMain from "./Components- Calendar/CalendarMain";
 import HomePage from "./Components-Homepage/HomePage";
 import Newproject from "./Componenets-Newproject/Newproject";
+import dashboard from "./Components-Dashboard/dashboard";
+import Dashboard from './Components-Dashboard/dashboard';
 
 function App() {
   return (
@@ -26,6 +28,14 @@ function App() {
                 </Route>
                 </div>
             </Switch>
+           < Switch>
+                <div>
+                <Route exact path="/dashboard">
+                    <Dashboard/>
+                </Route>
+                </div>
+            </Switch>
+
 
           <Switch>
               <div>

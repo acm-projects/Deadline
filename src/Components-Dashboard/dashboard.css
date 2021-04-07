@@ -10,8 +10,8 @@
     color: white;
     height: 40%;
     vertical-align: center;
-    line-height: 3.5;
-   
+    line-height: 2.5;
+    margin-left: 25px;
 }
 .subHeading {
     position: center;
@@ -52,3 +52,11 @@
     column-span: initial;
     
 }
+.dashboardToolbar{
+    position: relative;
+    height: 100px;
+    justify-items: center;
+    align-content: center;
+    background-color: #1A4645;
+    ;
+  }
