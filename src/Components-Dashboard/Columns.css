@@ -36,7 +36,7 @@
     font-size: 20px;
 }
 
-.progress1 {
+.progress3 {
     flex-direction: row;
     top: 215px;
     position: absolute;
@@ -48,7 +48,7 @@
     color: white;
 }
 
-.progress2 {
+.progress4 {
     position: absolute;
     background-color: #E2DAAC;
     width: 25%;
