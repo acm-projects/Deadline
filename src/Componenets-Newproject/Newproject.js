@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import DenseAppBar from "../Components- The Wall/Nav";
 import "./Newproject.css";
 import "./Newtask";
@@ -14,12 +14,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
 import Newtask from './Newtask';
 import {withStyles} from '@material-ui/core/styles';
+import firebase from "../firebase";
 
 
 
 export default function Newproject() {
-
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const { db } = require("../index");
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -48,7 +49,6 @@ export default function Newproject() {
                <div class = 'bg'>
               <DenseAppBar/>
 
-
              <Box className="newprojectToolbar" color='red'>
                      <header className='headerPrompt'><center>Welcome! Let's get you started</center></header>
             </Box>
@@ -58,7 +58,7 @@ export default function Newproject() {
               display: 'right',
               alignItems: 'right',
               flexWrap: 'right',
-          }} >
+          }} >          
             <form className='input' noValidate autoComplete="off">
            
               <TextField id="standard-basic" variant="filled" label="Project Name" />
