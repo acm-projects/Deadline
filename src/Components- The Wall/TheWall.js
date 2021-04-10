@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import "./Columns.css"
 import "./Nav.css"
 import ToDoList from "./ToDo";
-import Draggable from 'react-draggable';
+import Drag from "./Dragbar";
 
 function TheWall() {
     return (
@@ -21,13 +21,7 @@ function TheWall() {
             <Box className="complete2"/>
             <Box className="next2">
                 <center><ToDoList/></center>
-                <Draggable
-                    bounds="body"
-                ><center><Box className="task">
-                            Calendar View Page
-                        </Box>
-                </center>
-                </Draggable>
+                <Drag/>
             </Box>
             <Box className="progress1"><center>Progress</center></Box>
             <Box className="complete"><center>Complete</center></Box>
