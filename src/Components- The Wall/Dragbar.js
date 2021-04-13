@@ -25,6 +25,7 @@ const Tasks = [
     }
 ]
 
+
 function Drag() {
     const [tasks, updateTasks] = useState(Tasks);
 
@@ -40,28 +41,28 @@ function Drag() {
 
     return (
         <div>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
-                    <Droppable droppableId="tasks">
-                        {(provided) => (
-                            <ul className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
-                                {tasks.map(({id, name, thumb}, index) => {
-                                    return (
-                                        <Draggable key={id} draggableId={id} index={index}>
-                                            {(provided) => (
-                                                <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                                    <p>
-                                                        { name }
-                                                    </p>
-                                                </li>
-                                            )}
-                                        </Draggable>
-                                    );
-                                })}
-                                {provided.placeholder}
-                            </ul>
-                        )}
-                    </Droppable>
-                </DragDropContext>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId="tasks">
+                    {(provided) => (
+                        <ul className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
+                            {tasks.map(({id, name, thumb}, index) => {
+                                return (
+                                    <Draggable key={id} draggableId={id} index={index}>
+                                        {(provided) => (
+                                            <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                                <p>
+                                                    { name }
+                                                </p>
+                                            </li>
+                                        )}
+                                    </Draggable>
+                                );
+                            })}
+                            {provided.placeholder}
+                        </ul>
+                    )}
+                </Droppable>
+            </DragDropContext>
         </div>
     );
 }
