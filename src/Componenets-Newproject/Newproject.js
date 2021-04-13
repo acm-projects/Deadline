@@ -37,6 +37,7 @@ export default function Newproject() {
           fontFamily: 'Magra',
           fontSize: '12px',
           marginTop: '20px',
+          marginLeft: '30px',
           '&:hover': {
               backgroundColor: 'yellow',
           },
@@ -49,23 +50,20 @@ export default function Newproject() {
              <DenseAppBar/>
 
 
-             <Box className="newprojectToolbar" color='red'>
+             <Box className="newprojectToolbar">
                      <header className='headerPrompt'><center>Welcome! Let's get you started</center></header>
+                    <center> <Typography className='quote'>“Don’t judge each day by the harvest you reap but by the seeds that you plant.”
+- Robert Louis Stevenson</Typography></center>
              </Box>
+             <form className='input' noValidate autoComplete="off">
+             <Typography ><b>What is the name of your project?</b></Typography>      
            
-             <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
-             <div className='bg' style={{
-              display: 'right',
-              alignItems: 'right',
-              flexWrap: 'right',
-              }} >
-            <form className='input' noValidate autoComplete="off">
-           
-            <TextField id="standard-basic" variant="filled" label="Project Name" id="project-name" />
-              
-             <span>
-             <Typography className='promptStatement'><b>What is your estimated Deadline</b></Typography>
-                     <TextField id="standard-basic" variant="filled" label="MM/DD/YYYY" /></span>
+            <TextField id="standard-basic" variant="filled" label="Project Name" className='input' padding='1%' />
+            </form>
+           <div class='bgright'>
+           <form className='inputright' noValidate autoComplete="off">
+             <Typography className='promptStatementright'><b>What is your estimated Deadline?</b></Typography>
+                     <TextField id="standard-basic" variant="filled" label="MM/DD/YYYY" />
                      </form>
                      </div>
 
@@ -75,14 +73,17 @@ export default function Newproject() {
                               variant="filled"
                               multiline
                               rows={4}
-                              defaultValue="Project description" />
+                              defaultValue="Project description" 
+                              fullWidth/>
                     </form>
                    
                     <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
-                    <Newtask />
-                    <ColorButton className='style'>
+                    <Newtask /><center>
+                    <ColorButton>
                             Add subtask or checklist for this specific task
-                    </ColorButton>
+                    </ColorButton></center>
+                    <ColorButton className='donebutton' id='done '>Done Adding Tasks</ColorButton>
+                    <ColorButton className='submitbutton' id='done '>Submit Project!</ColorButton>
             </div>
             );
     }

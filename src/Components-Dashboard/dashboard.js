@@ -15,11 +15,12 @@ import { positions } from '@material-ui/system';
 import {withStyles} from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
 
-import "./Columns.css"
-import "./Nav.css"
+import "./Columns.css";
+import "./Nav.css";
 
 import Draggable from 'react-draggable';
 import LinearWithValueLabel from './progressbar';
+import CustomizedButtons from './buttons';
 
 export default function Dashboard() {
 
@@ -63,7 +64,10 @@ export default function Dashboard() {
              <Box className="progress3"><center>Current task</center></Box>
              <Box className="progress4"><center>Tasks for today</center></Box>
              </div>  
-             <div className="bottomSection"><LinearWithValueLabel /></div>
+             <div className="bottomSection"><LinearWithValueLabel />
+             <CustomizedButtons />
+             
+             </div>
              
 
 

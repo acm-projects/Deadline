@@ -36,14 +36,16 @@ export default function Newtask() {
             <div className='bg' >
                
 
-<form className='input' noValidate autoComplete="off">
-       1.  <TextField id="standard-basic" label="New Task Name" />
+<form className='inputText' noValidate autoComplete="off">
+       1.  <TextField id="standard-basic" label="New Task Name" className='input' />
                
 </form>
-<Typography className='promptStatement'><b>2. What kind of task is it</b></Typography>
+<Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
+<form className ='inputBox'>
 <Button aria-controls="simple-menu" m={2} aria-haspopup="true" className='inputBox' onClick={handleClick} color = "primary" variant = "contained" m={2}>
                         Task List
                         </Button>
+                        </form>
                         <Menu
                         id="simple-menu"
                         anchorEl={anchorEl}
@@ -60,18 +62,24 @@ export default function Newtask() {
                         <Typography id="discrete-slider-small-steps" gutterBottom>
         Difficulty Scale
       </Typography>
+      
+      
+
+     
       <Slider
         defaultValue={0.5}
         getAriaValueText={valuetext}
-        aria-labelledby="discrete-slider-small-steps"
+        aria-labelledby="discrete-slider-steps"
         step={1}
         marks
         min={0}
         max={5}
+        
         valueLabelDisplay="auto"
         id="difficulty-slider"
+        className ='slider'
       />
     
-                        </div>
+                </div>      
         );
 }
