@@ -80,7 +80,7 @@ export default function Newproject() {
                     <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
                     <Newtask /><center>
                     <ColorButton>
-                            Add subtask or checklist for this specific task
+                            Add another task
                     </ColorButton></center>
                     <ColorButton className='donebutton' id='done '>Done Adding Tasks</ColorButton>
                     <ColorButton className='submitbutton' id='done '>Submit Project!</ColorButton>
