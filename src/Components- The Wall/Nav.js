@@ -34,8 +34,11 @@ export default function DenseAppBar() {
             <Toolbar variant="dense" className="color-thewall">
                 <ColorButton onClick={() => history.push('/')}>Home</ColorButton>
                 <ColorButton onClick={() => history.push('/calendar')}>Calendar View</ColorButton>
-                <ColorButton>Sharing Options</ColorButton>
+                   
+                <ColorButton onClick={() => history.push('/newproject')}>New Project</ColorButton>
                 <ColorButton onClick={() => history.push('/thewall')}>The Wall</ColorButton>
+                <ColorButton onClick={() => history.push('/dashboard')}>Dashboard</ColorButton>
+                <ColorButton>Sharing Options</ColorButton>
                 <ColorButton>Help</ColorButton>
                 <ColorButton>Change Project</ColorButton>
             </Toolbar>

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import "./Button.css"
 import logo from '../Deadline-png.png';
 import "../App.css"
-import history from "../Components- The Wall/history";
+import history from "./history";
 
 const ColorButton = withStyles((theme) => ({
     root: {

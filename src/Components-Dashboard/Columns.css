@@ -1,8 +1,9 @@
-.next {
+.today {
     position: absolute;
-    top: 415px;
-    background-color: #AA1E1E;
-    width: 22%;
+    top: 215px;
+    left: 50px;
+    background-color: #034b46;
+    width: 20%;
     right: 77.5%;
     font-size: 30px;
     font-family: Magra, sans-serif;
@@ -10,17 +11,19 @@
     flex-direction: row;
 }
 
-.next2 {
+.today2 {
     position: absolute;
-    top: 460px;
-    background-color: #db7d7d;
-    width: 22%;
-    height: 500px;
+    top: 215px;
+    left: 50px;
+    background-color: #6fbdb7;
+    width: 20%;
+    height: 250px;
     right:77.5%;
     font-size: 20px;
     font-family: Magra, sans-serif;
     color: black;
     flex-direction: row;
+    text-indent: 2px;
 }
 
 .task {
@@ -33,25 +36,25 @@
     font-size: 20px;
 }
 
-.progress1 {
+.progress3 {
     flex-direction: row;
-    top: 415px;
+    top: 215px;
     position: absolute;
-    background-color: #6B6100;
-    width: 22%;
-    left: 25.5%;
+    background-color: #034b46;
+    width: 20%;
+    left: 27.5%;
     font-size: 30px;
     font-family: Magra, sans-serif;
     color: white;
 }
 
-.progress2 {
+.progress4 {
     position: absolute;
-    background-color: #DBCB41;
-    width: 22%;
-    top: 460px;
-    height: 500px;
-    left: 25.5%;
+    background-color: #E2DAAC;
+    width: 20%;
+    top: 260px;
+    height: 350px;
+    left: 27.5%;
     font-size: 20px;
     font-family: Magra, sans-serif;
     color: black;

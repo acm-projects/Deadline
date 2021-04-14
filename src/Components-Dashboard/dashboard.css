@@ -1,0 +1,78 @@
+.bg{
+    background-color: #EEE9E9;
+    height: 50%;
+}
+
+.headerPrompt {
+    position: center;
+    font-family: Raleway, sans-serif;
+    font-size: 40px;
+    color: white;
+    height: 40%;
+    vertical-align: center;
+    line-height: 2.5;
+    margin-left: 25px;
+}
+.subHeading {
+    position: center;
+    font-family: Raleway, sans-serif;
+    font-size: 36px;
+    color: black;
+    height: 40%;
+    vertical-align: center;
+    line-height: 1.5;
+   
+}
+.promptStatement {
+    font-size: x-large;
+    color: black;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-family: Raleway, sans-serif;
+    align-self: left;
+}
+.input {
+    font-size: 20px;
+    color: black;
+    padding: 15px;
+    column-span: initial;
+    
+}
+.biginput {
+    font-size: 20px;
+    color: black;
+    padding-left: 20px;
+    
+}
+.inputBox {
+    font-size: 20px;
+    color: black;
+    padding: 35px;
+    column-span: initial;
+    
+}
+.dashboardToolbar{
+    position: relative;
+    height: 100px;
+    justify-items: center;
+    align-content: center;
+    background-color: #1A4645;
+    ;
+  }
+
+  .blankSection{
+    background-color:white;
+    height: 500px;
+
+  }
+
+  .bottomSection{
+      position: bottom;
+      height: 150px;
+      vertical-align: bottom;
+      justify-items: center;
+    align-content: bottom;
+    background-color: #d6d4bd;
+
+  }

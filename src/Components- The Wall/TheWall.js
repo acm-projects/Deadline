@@ -26,7 +26,7 @@ function TheWall() {
             <Box className="next2">
                 <center><ToDoList/></center>
             </Box>
-            <Box className="progress1"><center>Progress</center></Box>
+            <Box className="progress1"><center>In Progress</center></Box>
             <Box className="complete"><center>Complete</center></Box>
             <Box className="Notes"><center>Notes</center></Box>
             <Box className="bottom"/>
