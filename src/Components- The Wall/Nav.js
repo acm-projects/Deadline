@@ -3,7 +3,6 @@ import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import "./Nav.css"
 import Button from "@material-ui/core/Button";
-import history from "./history";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,12 +31,26 @@ export default function DenseAppBar() {
     return (
         <div className={classes.root}>
             <Toolbar variant="dense" className="color-thewall">
-                <ColorButton onClick={() => history.push('/')}>Home</ColorButton>
-                <ColorButton onClick={() => history.push('/calendar')}>Calendar View</ColorButton>
-                   
-                <ColorButton onClick={() => history.push('/newproject')}>New Project</ColorButton>
-                <ColorButton onClick={() => history.push('/thewall')}>The Wall</ColorButton>
-                <ColorButton onClick={() => history.push('/dashboard')}>Dashboard</ColorButton>
+                <a style={{textDecorationLine:'none'}} href="/">
+                    <ColorButton>Home</ColorButton>
+                </a>
+
+                <a style={{textDecorationLine:'none'}} href="/calendar">
+                <ColorButton>Calendar View</ColorButton>
+                </a>
+
+                <a style={{textDecorationLine:'none'}} href="/newproject">
+                <ColorButton>New Project</ColorButton>
+                </a>
+
+                <a style={{textDecorationLine:'none'}} href="/thewall">
+                <ColorButton>The Wall</ColorButton>
+                </a>
+
+                <a style={{textDecorationLine:'none'}} href="/dashboard">
+                <ColorButton>Dashboard</ColorButton>
+                </a>
+
                 <ColorButton>Sharing Options</ColorButton>
                 <ColorButton>Help</ColorButton>
                 <ColorButton>Change Project</ColorButton>
