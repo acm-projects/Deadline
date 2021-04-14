@@ -1,19 +1,11 @@
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .tasks {
     list-style: none;
     padding-left: 0;
     font-family: Magra, sans-serif;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 25px;
+    width: 20%;
+    right: 78.5%;
+    position: absolute;
+    top: 525px;
 }
 
 .tasks li {
@@ -22,7 +14,7 @@
     padding: .3em .5em .3em .3em;
     margin-bottom: 1em;
     font-family: Magra, sans-serif;
-    background-color: #C4C4C4;
+    background-color: #eaeaea;
     color: black;
 }
 
@@ -38,8 +30,85 @@
     flex-shrink: 0;
     width: 2em;
     height: 2em;
-    background-color: #e8e8e8;
+    background-color: #eaeaea;
     padding: .5em;
     margin-right: .5em;
     font-family: Magra, sans-serif;
 }
+
+.tasks1 {
+    list-style: none;
+    padding-left: 0;
+    font-family: Magra, sans-serif;
+    width: 20%;
+    left: 26.5%;
+    position: absolute;
+    top: 525px;
+}
+
+.tasks1 li {
+    display: flex;
+    align-items: center;
+    padding: .3em .5em .3em .3em;
+    margin-bottom: 1em;
+    font-family: Magra, sans-serif;
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.tasks1 p {
+    max-width: none;
+    font-weight: bold;
+    margin: 0;
+    font-family: Magra, sans-serif;
+}
+
+.tasks1-thumb {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    background-color: #9b9b9b;
+    padding: .5em;
+    margin-right: .5em;
+    font-family: Magra, sans-serif;
+}
+
+.tasks2 {
+    list-style: none;
+    padding-left: 0;
+    font-family: Magra, sans-serif;
+    width: 20%;
+    left: 53.5%;
+    position: absolute;
+    top: 525px;
+}
+
+.tasks2 li {
+    display: flex;
+    align-items: center;
+    padding: .3em .5em .3em .3em;
+    margin-bottom: 1em;
+    font-family: Magra, sans-serif;
+    background-color: #eaeaea;
+    color: black;
+}
+
+.tasks2 p {
+    max-width: none;
+    font-weight: bold;
+    margin: 0;
+    font-family: Magra, sans-serif;
+}
+
+.tasks2-thumb {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    background-color: #eaeaea;
+    padding: .5em;
+    margin-right: .5em;
+    font-family: Magra, sans-serif;
+}
+

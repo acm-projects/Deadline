@@ -9,9 +9,9 @@
 }
 
 .bottom {
-    position: absolute;
+    position: relative;
     background-color: #30475E;
-    top: 125%;
+    top: auto;
     height: 100px;
     width: 100%;
 }
