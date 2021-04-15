@@ -1,0 +1,43 @@
+.slowbutton
+{
+  
+    height: 80px;
+    width: 150px;
+    left: 30%;
+    font-family: Magra, sans-serif;
+  
+    background-color: black;
+    position: absolute;
+   
+}
+
+.fastbutton
+{
+    
+    height: 80px;
+    width: 150px;
+    display: flex;
+    
+    font-family: Magra, sans-serif;
+    color: black;
+    background-color: red;
+    position: absolute;
+   
+}
+
+.buttonstyle1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Magra, sans-serif;
+    color: black;
+    background-color: white;
+}
+
+.buttonbox {
+    height: 10px;
+    width: 10px;
+    background-color: #c5c5c5;
+}
+

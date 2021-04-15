@@ -1,0 +1,17 @@
+.App {
+    font-family: Magra, sans-serif;
+    text-align: center;
+}
+
+.react-kanban-column {
+    background-color: #bcbcbc;
+    font-size: 20px;
+    margin-left: 5%;
+    margin-top: 40px;
+}
+
+.react-kanban-card {
+    background-color: #3e3e3e;
+    color: #ffffff;
+}
+
