@@ -1,8 +1,12 @@
 const { db, admin } = require('../util/admin');
+const firebase = require('firebase');
+const config = require('../util/config.js');
+const { setSeconds } = require('date-fns');
 
-async function addTasks (pName, pDesc, pDeadline) {
-const docRef = db.collection('projectInfo').doc('testAddDoc');
-var startDate = new Date();
+firebase.initializeApp(config);
+
+async function addTasks (passedID) {
+const docRef = db.collection('projectInfo').doc(passedID);
 
 try{
     await docRef.set({
@@ -44,27 +48,56 @@ async function scheduleTasks(passedID) {
         var startDate  = snapshot.data().dateCreate;
         var deadline = snapshot.data().deadline;
         var tasks = snapshot.data().tasks
-
+        var numTasks = tasks.length;
+        var totalComplexity = 0;
+        var percentage = 0;
+        var taskDeadline;
+    
         // calculate the number of days between the start and end date 
-        var difference = deadline - startDate;
-        var numDays = difference / 86400;
+        var tempDeadline = new Date(deadline.toDate());
+        var tempStartDate = new Date(startDate.toDate());
+        var dayDifference = Math.abs(tempDeadline - tempStartDate);
 
-        // count the number of tasks in the project
-        snapshot.forEach(function (snapshot) {
-            var key = snapshot.key();
-            var obj = snapshot.val();
-            console.log(key)
-        });
-        let numTasks = 0;
+        dayDifference = dayDifference / (1000 * 3600 * 24);
+       
+        // get the total complexity
+        for (let i = 0; i < tasks.length; i++) {
+            totalComplexity += snapshot.data().tasks[i].complexity;
+        }
+
+        // give every task a deadline
+        var lastDate = tempStartDate;
+        var uTaskName = {};
+        var uTaskStatus = {};
+        var uTaskDeadline = {};
+        var uTaskComplexity = {};
+      
+        for (let i = 0; i < tasks.length; i++) {
+            currentTask = snapshot.data().tasks[i];
+            percentage = currentTask.complexity / totalComplexity;
+            taskInterval = Math.round(dayDifference * percentage); 
+            taskDeadline = new Date();
+
+            taskDeadline.setDate(lastDate.getDate() + taskInterval);
+            taskDeadline.setHours(0,0,0,0);
+
+            // update to database
+            uTaskName[`tasks.${i}.name`] = currentTask.name;
+            uTaskDeadline[`tasks.${i}.deadline`] = taskDeadline;
+            uTaskStatus[`tasks.${i}.status`] = currentTask.status
+            uTaskComplexity[`tasks.${i}.complexity`] = currentTask.complexity
+            
+            const updateTask = await projectRef.update(uTaskName);
+            const updateDeadline = await projectRef.update(uTaskDeadline);
+            const updateStatus = await projectRef.update(uTaskStatus);
+            const updateComplexity = await projectRef.update(uTaskComplexity);
+
+            lastDate = taskDeadline;
         
-        console.log('############################################ ' + numTasks + ' ###########################################');
-
-
-        /* update to database
-        const res = await docRef.update({
-            duration: numDays
-        }, {merge: true});
-        */
+        console.log(currentTask.name, '=>', currentTask.complexity, percentage, taskInterval);
+        console.log("\n");
+        }
+        
     }
     catch (err) {
         console.log('Error getting documents', err);
@@ -116,10 +149,9 @@ exports.postOneProject = (request, response) => {
         deadline: admin.firestore.Timestamp.fromDate(new Date(request.body.deadline)),
         tasks: request.body.tasks
     }
-
     db
         .collection('projectInfo')
-        .add(newProject)
+        .add(newProject) 
         .then((doc)=>{
             const responseProject = newProject;
             responseProject.id = doc.id;
