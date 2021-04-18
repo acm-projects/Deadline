@@ -36,7 +36,7 @@ export default function Newtask() {
             <div className='bg' >
                
 
-<form className='inputText' noValidate autoComplete="off">
+<form className='inputTextformat' noValidate autoComplete="off">
        1.  <TextField id="standard-basic" label="New Task Name" className='input' />
                
 </form>
@@ -58,9 +58,10 @@ export default function Newtask() {
                         <MenuItem onClick={handleClose}>2. Coding</MenuItem>
                         <MenuItem onClick={handleClose}>3. Wireframes</MenuItem>
                         <MenuItem onClick={handleClose}>4. Design</MenuItem>
+                        <MenuItem onClick={handleClose}>5. Other</MenuItem>
                         </Menu>
-                        <Typography id="discrete-slider-small-steps" gutterBottom>
-        Difficulty Scale
+                        <Typography id="discrete-slider-small-steps" gutterBottom className='inputText'><b>
+        3. Difficulty Scale</b> 
       </Typography>
       
       

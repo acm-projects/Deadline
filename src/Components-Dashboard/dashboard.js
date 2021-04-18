@@ -60,9 +60,9 @@ export default function Dashboard() {
                      </Box>
                   <div className="blankSection"> <Box className="today2" id="tasks-today"> <Typography align='left'>1. Create wireframes</Typography></Box>
              
-             <Box className="today"><center>Tasks for today</center></Box>
+             <Box className="today"><center>Taskss for today</center></Box>
              <Box className="progress3"><center>Current task</center></Box>
-             <Box className="progress4"><center>Tasks for today</center></Box>
+             
              </div>  
              <div className="bottomSection"><LinearWithValueLabel />
              <CustomizedButtons />

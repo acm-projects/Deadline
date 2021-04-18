@@ -41,56 +41,73 @@
     align-self: left;
     
 }
+.promptStatementcenter {
+    font-size: x-large;
+    color: black;
+    padding-top: 0px;
+    padding-left: 39%;
+    font-weight: bold;
+    font-family: Raleway, sans-serif;
+    
+}
 .promptStatementright {
     font-size: x-large;
     color: black;
-    padding-top: 20px;
    
+    column-span: initial;
+    left:72%;
+    top: 230px;
+    position: absolute;
     font-weight: bold;
-    font-family: Raleway, sans-serif;
-    align-self: right;
-    left: 50%;
-    
+    font-family: Raleway, sans-serif;   
+   
 }
+
 .input {
     font-size: 20px;
     color: black;
-    
-    column-span: initial;
+    padding: 2px;
     
 }
 .inputText {
     font-size: 20px;
     color: black;
-    padding: 20px;
+    padding: 10px;
     column-span: initial;
+    
+}
+.inputTextformat {
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    top: 75%;
+    position: relative;
     
 }
 
 .inputright {
     font-size: 20px;
     color: black;
-    padding: 15px;
-    column-span: initial;
-    right: 80%;
-    align-items: right;
-    right: 30%;
-   
     
-    justify-content: center;
-    align-items: center;
+    column-span: initial;
+    left: 60%;
+    
+  
     font-family: Magra, sans-serif;
     color: black;
     
     position: absolute;
-    top: 180px;
+  
     
 }
 .biginput {
     font-size: 20px;
     color: black;
    padding-bottom: 20px;
-   padding-right: 20px;
+   padding-right: 10px;
+   left: 5%;
+   width: 80%;
+   
     
 }
 .inputBox {

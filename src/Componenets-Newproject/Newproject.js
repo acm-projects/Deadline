@@ -119,7 +119,7 @@ class newprj extends Component {
           - Robert Louis Stevenson</Typography></center>
         </Box>
         <form className='input' noValidate autoComplete="off">
-          <Typography ><b>What is the name of your project?</b></Typography>
+        
 
           <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
           <div className='bg' style={{
@@ -134,22 +134,23 @@ class newprj extends Component {
                 onChange={this.handleChange}
                 value={this.state.projectName} />
 
-              <span>
-                <Typography className='promptStatement'><b>What is your estimated Deadline</b></Typography>
-                <TextField id="deadline" variant="filled" label="MM/DD/YYYY" name="deadline"
+             
+                <Typography className='promptStatementright'><b>What is your estimated Deadline?</b></Typography>
+                <TextField id="deadline" variant="filled" label="MM/DD/YYYY" name="deadline" className = "inputright"
                   autoComplete="deadline"
                   onChange={this.handleChange}
-                  value={this.state.deadline} /></span>
+                  value={this.state.deadline} />
             </form>
           </div>
 
-          <Typography className='promptStatement'><b>Tell us a bit about your project!</b></Typography>
-          <form className='biginput' noValidate autoComplete="off">
+          <Typography className='promptStatementcenter'><b>Tell us a bit about your project!</b></Typography>
+          <form  noValidate autoComplete="off">
             <TextField id="projectDesc"
               label="Project Description"
               variant="filled"
               multiline
               rows={4}
+              className='biginput'
               //defaultValue="Project description" 
               name="projectDesc"
               onChange={this.handleChange}
@@ -166,7 +167,7 @@ class newprj extends Component {
           <Button className='submitbutton' id='done ' type='add'
             className='style'
             onClick={this.handleClick} >Submit Project!</Button>
-          <Newtask />
+          
           </div>
         </div> 
         );
