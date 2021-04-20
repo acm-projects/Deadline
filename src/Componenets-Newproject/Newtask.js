@@ -14,7 +14,7 @@ import Slider from '@material-ui/core/Slider';
 import { spacing } from '@material-ui/system';
 import { Component } from "react";
 import axios from "axios";
-
+import { FormControl, FormControlLabel, InputLabel, Select} from "@material-ui/core";
 class Newtask extends Component {
 
   constructor(props) {
@@ -60,8 +60,7 @@ class Newtask extends Component {
       )
 
       .then(() => {
-        // localStorage.setItem("projectInfo",  )
-        // this.setState({ projectLoading: false});
+        
         this.props.history.push("/");
       }
       )
@@ -89,11 +88,28 @@ class Newtask extends Component {
                       
         </form>
 <Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
-<form className ='inputBox'>
-  <TextField id="taskType" variant="filled" label="Task Type" name="taskType"
-              onChange={this.handleChange} value={this.state.taskType} 
-              />
-  </form>
+        <FormControl fullWidth variant="outlined" margin="dense">
+                      <InputLabel>Task Type</InputLabel>
+                      <Select
+                        label="Task Type"
+                        name="taskType"
+                        value={this.state.taskType}
+                        onChange={this.handleChange}
+                      >
+                        <MenuItem selected value="Coding">
+                          Coding
+                        </MenuItem>
+                        <MenuItem value="Presentation">
+                          Presentation
+                        </MenuItem>
+                        <MenuItem value="Writing">
+                          Writing
+                        </MenuItem>
+                        <MenuItem value="Design">
+                          Design
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
     <Typography id="discrete-slider-small-steps" gutterBottom>
         Difficulty Scale
       </Typography>

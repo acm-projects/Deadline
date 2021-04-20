@@ -14,6 +14,10 @@ exports.getAllProjects = (request, response) => {
 					projectDesc: doc.data().projectDesc,
 					dateCreate: doc.data().dateCreate,
                     deadline: doc.data().deadline,
+                    taskName: doc.data().tasks.taskName,
+                    taskType: doc.data().tasks.taskType,
+                    taskComplexity: doc.data().tasks.taskComplexity
+
 				});
 			});
 			return response.json(projectInfo);
@@ -38,6 +42,9 @@ exports.postOneProject = (request, response) => {
         projectDesc: request.body.projectDesc,
         dateCreate: new Date().toISOString(),
         deadline: request.body.deadline,
+        taskName: request.body.tasks.taskName,
+        taskType: request.body.tasks.taskType,
+        taskComplexity: request.body.tasks.taskComplexity
     
     }
     db
