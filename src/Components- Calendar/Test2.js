@@ -1,17 +1,63 @@
 import React from 'react'
+import { Component } from "react"; 
 import FullCalendar, { formatDate } from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import axios from "axios";
 import "./Calendar.css"
 
-export default class Calendar extends React.Component {
+export default class Calendar extends Component {
 
-    state = {
-        weekendsVisible: true,
-        currentEvents: []
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            projectLoading: false,
+            projectName: "",
+            projectDesc: "",
+            deadline: "",
+            tasks: "",
+            taskName: "",
+            taskDeadline: "",
+            weekendsVisible: true,
+            currentEvents: []
+        };
     }
+    componentWillMount = () => {
+        axios
+          .get("https://us-central1-deadline-17bb4.cloudfunctions.net/api/projects")
+          .then((response) => {
+            console.log(response.data);
+            
+            let events = {};
 
+            for (let i = 0; i < response.data.length; i++) {
+                
+            }
+            /*
+            this.setState({
+              firstName: response.data.memberInfo.firstName,
+              lastName: response.data.memberInfo.lastName,
+              email: response.data.memberInfo.email,
+              phoneNumber: response.data.memberInfo.phoneNumber,
+              classification: response.data.memberInfo.classification,
+              major: response.data.memberInfo.major,
+              otherMajor: response.data.memberInfo.otherMajor,
+              netid: response.data.memberInfo.netid,
+              uiLoading: false,
+            });*/
+          })
+          .catch((error) => {
+            if (error.response != undefined) {
+              if (error.response.status === 403) {
+                this.props.history.push("/project");
+              }
+            }
+            console.log(error);
+            this.setState({ errorMsg: "Error retrieving tasks" });
+          });
+      };
     render() {
         return (
             <div className='general'>
@@ -82,9 +128,9 @@ export default class Calendar extends React.Component {
     }
 
     handleEvents = (events) => {
-        this.setState({
-            currentEvents: events
-        })
+        this.setState({        
+          currentEvents: events
+        });
     }
 
 }

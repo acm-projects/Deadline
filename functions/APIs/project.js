@@ -1,45 +1,8 @@
 const { db, admin } = require('../util/admin');
 const firebase = require('firebase');
 const config = require('../util/config.js');
-const { setSeconds } = require('date-fns');
 
 firebase.initializeApp(config);
-
-async function addTasks (passedID) {
-const docRef = db.collection('projectInfo').doc(passedID);
-
-try{
-    await docRef.set({
-        "projectName": pName,
-        "projectDesc": pDesc,
-        "dateCreate": startDate,
-        "deadline": pDeadline,
-        "tasks": {"task1": {"tasktype": "testing adding", "taskComplexity": 5}},
-        });
-  }
-    
-  catch (err) {
-    console.log('Error adding document', err);
-  } 
-
-pDeadline = db.Timestamp.fromDate(new Date(pDeadline));
-}
-
-async function printProjectTasks() {
-    try{
-        const projectsRef = db.collection('projectInfo');
-        const snapshot = await projectsRef.get();
-        snapshot.forEach(doc => {
-        console.log(doc.data().projectName, '=>', doc.data());
-        console.log("\n");
-        });
-    }
-    catch (err) {
-        console.log('Error getting documents', err);
-    }
-}
-
-//printProjectTasks();
 
 async function scheduleTasks(passedID) {
     try{
@@ -48,7 +11,6 @@ async function scheduleTasks(passedID) {
         var startDate  = snapshot.data().dateCreate;
         var deadline = snapshot.data().deadline;
         var tasks = snapshot.data().tasks
-        var numTasks = tasks.length;
         var totalComplexity = 0;
         var percentage = 0;
         var taskDeadline;
@@ -159,8 +121,8 @@ exports.postOneProject = (request, response) => {
             return response.json(responseProject);
         })
         .catch((err) => {
-			response.status(500).json({ error: 'Something went wrong' });
-			console.error(err);
+            console.error(err);
+			return response.status(500).json({ error: 'Something went wrong' });
 		});
 };
 
