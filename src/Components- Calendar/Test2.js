@@ -28,36 +28,32 @@ export default class Calendar extends Component {
         axios
           .get("https://us-central1-deadline-17bb4.cloudfunctions.net/api/projects")
           .then((response) => {
-            console.log(response.data);
-            
-            let events = {};
+
+            let events = [];
 
             for (let i = 0; i < response.data.length; i++) {
-                
+                 var oldDeadline = response.data[i].deadline; 
+                 var converted = new Date(oldDeadline.toDate());
+                 converted = converted.toDateString();
+                 
+                 events.push({ name: response.data[i].projectName, deadline: converted, id: response.data[i].projectId });
             }
-            /*
-            this.setState({
-              firstName: response.data.memberInfo.firstName,
-              lastName: response.data.memberInfo.lastName,
-              email: response.data.memberInfo.email,
-              phoneNumber: response.data.memberInfo.phoneNumber,
-              classification: response.data.memberInfo.classification,
-              major: response.data.memberInfo.major,
-              otherMajor: response.data.memberInfo.otherMajor,
-              netid: response.data.memberInfo.netid,
-              uiLoading: false,
-            });*/
+
+            console.log(events);
+            this.handleEvents(events);
+            renderEventContent(events);
           })
           .catch((error) => {
             if (error.response != undefined) {
               if (error.response.status === 403) {
-                this.props.history.push("/project");
+                this.props.history.push("/projects");
               }
             }
             console.log(error);
             this.setState({ errorMsg: "Error retrieving tasks" });
           });
       };
+
     render() {
         return (
             <div className='general'>
@@ -132,14 +128,14 @@ export default class Calendar extends Component {
           currentEvents: events
         });
     }
-
 }
 
 function renderEventContent(eventInfo) {
+    console.log(eventInfo[3].deadline)
     return (
         <>
-            <b>{eventInfo.timeText}</b>
-            <i>{eventInfo.event.title}</i>
+            <b>{eventInfo[3].deadline}</b>
+            <i>{eventInfo[3].name}</i>
         </>
     )
 }
@@ -147,8 +143,8 @@ function renderEventContent(eventInfo) {
 function renderSidebarEvent(event) {
     return (
         <li key={event.id}>
-            <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-            <i>{event.title}</i>
+            <b>{formatDate(event.deadline, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
+            <i>{'  ' + event.name}</i>
         </li>
     )
 }
