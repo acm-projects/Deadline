@@ -60,7 +60,8 @@ export default function Newtask() {
                         <MenuItem onClick={handleClose}>4. Design</MenuItem>
                         <MenuItem onClick={handleClose}>5. Other</MenuItem>
                         </Menu>
-                        <Typography id="discrete-slider-small-steps" gutterBottom className='inputText'><b>
+                        <Typography id="discrete-slider-small-steps" gutterBottom className='inputText'>
+                          <b>
         3. Difficulty Scale</b> 
       </Typography>
       
@@ -75,7 +76,6 @@ export default function Newtask() {
         marks
         min={0}
         max={5}
-        
         valueLabelDisplay="auto"
         id="difficulty-slider"
         className ='slider'

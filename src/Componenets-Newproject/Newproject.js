@@ -165,7 +165,7 @@ class newprj extends Component {
                     </Button></center>
           <Button className='donebutton' id='done '>Done Adding Tasks</Button>
           <Button className='submitbutton' id='done ' type='add'
-            className='style'
+            
             onClick={this.handleClick} >Submit Project!</Button>
           
           </div>
