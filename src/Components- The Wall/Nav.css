@@ -11,7 +11,7 @@
 .bottom {
     position: relative;
     background-color: #30475E;
-    top: 40px;
+    margin-top: 10%;
     height: 275px;
     width: 100%;
 }
