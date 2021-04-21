@@ -2,6 +2,8 @@ import React from "react";
 import Board from "@lourenci/react-kanban";
 import "@lourenci/react-kanban/dist/styles.css";
 import "./style.css"
+import { Component } from "react";
+import axios from "axios";
 
 const board = {
     columns: [
@@ -62,7 +64,40 @@ const board = {
     ]
 };
 
-function DragTest() {
+class DragTest extends Component {
+    
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          dragLoading: false,
+          taskName: "",
+        };
+    }
+  componentWillMount = () => {
+    
+    axios
+      .get("https://us-central1-deadline-17bb4.cloudfunctions.net/api/projects")
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          taskName: response.data.taskName,
+          dragLoading: false,
+        });
+      })
+      .catch((error) => {
+        if (error.response != undefined) {
+          if (error.response.status === 403) {
+            this.props.history.push("/");
+          }
+        }
+        console.log(error);
+        this.setState({ errorMsg: "Error in retrieving the data" });
+      });
+  };
+    render() {
+        const { classes } = this.props;
+        const { errors, dragLoading } = this.state;
     return (
        <Board
             allowRemoveLane
@@ -81,6 +116,8 @@ function DragTest() {
         />
     );
 }
+}
 
-export default DragTest
+
+export default DragTest;
 

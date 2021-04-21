@@ -12,63 +12,111 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
 import { spacing } from '@material-ui/system';
+import { Component } from "react";
+import axios from "axios";
+import { FormControl, FormControlLabel, InputLabel, Select} from "@material-ui/core";
+class Newtask extends Component {
 
+  constructor(props) {
+    super(props);
 
-export default function Newtask() {
-
-  const theme = {
-    spacing: 8,
+    this.state = {
+      taskLoading: false,
+      taskName: "",
+      taskType: "",
+      taskComplexity: ""
+    };
   }
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
-    function valuetext(value) {
-        return `${value}°C`;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI != undefined) {
+      if (nextProps.UI.errors) {
+        this.setState({
+          errors: nextProps.UI.errors,
+        });
       }
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+
+  handleAddTasks = (event) => {
+    
+    event.preventDefault();
+    this.setState({ taskLoading: true });
+    const taskData = {
+      taskName: this.state.taskName,
+      taskType: this.state.taskType,
+      taskComplexity: this.state.taskComplexity,
+    };
+    axios
+      .post(
+        "https://us-central1-deadline-17bb4.cloudfunctions.net/api/project",
+         taskData
+      )
+
+      .then(() => {
+        
+        this.props.history.push("/");
+      }
+      )
+
+      .catch((error) => {
+        this.setState({
+          errors: error.response,
+          taskLoading: false,
+        });
+      });
+
+
+  };
+  render() {
+    const { classes } = this.props;
+    const { errors, taskLoading } = this.state;
   
         return (
             <div className='bg' >
-               
-
-<form className='inputText' noValidate autoComplete="off">
-       1.  <TextField id="standard-basic" label="New Task Name" className='input' />
-               
-</form>
+        <form className='inputText' noValidate autoComplete="off">
+             <TextField id="taskName" variant="filled" label="Task Name" name="taskName"
+              onChange={this.handleChange}
+              value={this.state.taskName}
+              />
+                      
+        </form>
 <Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
-<form className ='inputBox'>
-<Button aria-controls="simple-menu" m={2} aria-haspopup="true" className='inputBox' onClick={handleClick} color = "primary" variant = "contained" m={2}>
-                        Task List
-                        </Button>
-                        </form>
-                        <Menu
-                        id="simple-menu"
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                        
-                        >
-                        <MenuItem onClick={handleClose}>1. Presentation</MenuItem>
-                        <MenuItem onClick={handleClose}>2. Coding</MenuItem>
-                        <MenuItem onClick={handleClose}>3. Wireframes</MenuItem>
-                        <MenuItem onClick={handleClose}>4. Design</MenuItem>
-                        </Menu>
-                        <Typography id="discrete-slider-small-steps" gutterBottom>
+        <FormControl fullWidth variant="outlined" margin="dense">
+                      <InputLabel>Task Type</InputLabel>
+                      <Select
+                        label="Task Type"
+                        name="taskType"
+                        value={this.state.taskType}
+                        onChange={this.handleChange}
+                      >
+                        <MenuItem selected value="Coding">
+                          Coding
+                        </MenuItem>
+                        <MenuItem value="Presentation">
+                          Presentation
+                        </MenuItem>
+                        <MenuItem value="Writing">
+                          Writing
+                        </MenuItem>
+                        <MenuItem value="Design">
+                          Design
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+    <Typography id="discrete-slider-small-steps" gutterBottom>
         Difficulty Scale
       </Typography>
-      
-      
-
-     
+    
       <Slider
         defaultValue={0.5}
-        getAriaValueText={valuetext}
+        //getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-steps"
         step={1}
         marks
@@ -83,3 +131,5 @@ export default function Newtask() {
                 </div>      
         );
 }
+}
+export default Newtask;

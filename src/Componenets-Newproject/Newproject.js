@@ -29,7 +29,7 @@ class newprj extends Component {
       projectName: "",
       projectDesc: "",
       deadline: "",
-      tasks: ""
+     
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -60,7 +60,7 @@ class newprj extends Component {
       projectName: this.state.projectName,
       projectDesc: this.state.projectDesc,
       deadline: this.state.deadline,
-      tasks: this.state.tasks
+  
     };
     axios
       .post(
@@ -84,9 +84,6 @@ class newprj extends Component {
 
 
   };
-
- 
-
 
   ColorButton = withStyles((theme) => ({
     root: {
@@ -158,15 +155,20 @@ class newprj extends Component {
           </form>
 ​          <div>
           <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
-          <Newtask /><center>
+        <Newtask /><center>
             <Button>
               Add another task
-                    </Button></center>
-          <Button className='donebutton' id='done '>Done Adding Tasks</Button>
+                    </Button></center> 
+
+          <Button className='donebutton' id='done ' onClick={this.handleChange}>Done Adding Tasks</Button>
+    
           <Button className='submitbutton' id='done ' type='add'
             className='style'
             onClick={this.handleClick} >Submit Project!</Button>
-          <Newtask />
+          <Newtask /> 
+          <Button className='submitbutton' id='done ' type='add'
+            className='style'
+            onClick={this.handleClick} >Submit Project!</Button>
           </div>
         </div> 
         );

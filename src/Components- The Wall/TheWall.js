@@ -31,8 +31,7 @@ function TheWall() {
             <Box className="Notes"><center>Notes</center></Box>
             <Box className="bottom"/>
             <Drag/>*/}
-            <center><DragTest/></center>
-            <Box className="bottom"/>
+            <DragTest/>
         </div>
     );
 }
