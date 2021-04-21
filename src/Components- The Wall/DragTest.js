@@ -64,7 +64,7 @@ const board = {
 
 function DragTest() {
     return (
-        <Board
+       <Board
             allowRemoveLane
             allowRenameColumn
             allowRemoveCard

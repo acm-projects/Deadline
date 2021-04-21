@@ -4,10 +4,12 @@
 }
 
 .react-kanban-column {
+    position: -ms-device-fixed;
     background-color: #bcbcbc;
     font-size: 20px;
-    margin-left: 5%;
     margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .react-kanban-card {
