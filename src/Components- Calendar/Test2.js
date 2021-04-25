@@ -24,68 +24,51 @@ export default class Calendar extends Component {
             currentEvents: []
         };
     }
+
     componentWillMount = () => {
-        axios
-          .get("https://us-central1-deadline-17bb4.cloudfunctions.net/api/projects")
-          .then((response) => {
+        this.setState({ projectLoading: true });
 
-            let events = [];
+        var axios = require('axios');
+        var events = [];
 
+        var config = {
+        method: 'get',
+        url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
+        headers: { }
+        };
+
+        axios(config)
+        .then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
-                 var oldDeadline = response.data[i].deadline; 
-                 var converted = new Date(oldDeadline.toDate());
-                 converted = converted.toDateString();
-                 
-                 events.push({ name: response.data[i].projectName, deadline: converted, id: response.data[i].projectId });
-            }
+                
+                var x = 0;
+                var currentTask = response.data[i].tasks[x];
 
-            console.log(events);
-            this.handleEvents(events);
-            renderEventContent(events);
-          })
-          .catch((error) => {
-            if (error.response != undefined) {
-              if (error.response.status === 403) {
-                this.props.history.push("/projects");
-              }
-            }
+                while (currentTask != undefined) {
+                        events.push({ 
+                        name: currentTask.name, 
+                        deadline: currentTask.deadline
+                       });
+
+                       x++;
+                       currentTask = response.data[i].tasks[x];
+                }
+           }
+           console.log(events)
+           renderEventContent(events);
+        })
+        .catch(function (error) {
             console.log(error);
-            this.setState({ errorMsg: "Error retrieving tasks" });
-          });
+        });
+
+        this.setState({
+            projectLoading: false
+        });
+        
+        console.log(events)
       };
 
-    render() {
-        return (
-            <div className='general'>
-                {this.renderSidebar()}
-                <div className="test">
-                    <FullCalendar
-                        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                        headerToolbar={{
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                        }}
-                        initialView='dayGridMonth'
-                        editable={true}
-                        selectable={true}
-                        selectMirror={true}
-                        dayMaxEvents={true}
-                        weekends={this.state.weekendsVisible}
-                        select={this.handleDateSelect}
-                        eventContent={renderEventContent} // custom render function
-                        eventClick={this.handleEventClick}
-                        eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
-                        /* you can update a remote database when these fire:
-                        eventAdd={function(){}}
-                        eventChange={function(){}}
-                        eventRemove={function(){}}
-                        */
-                    />
-                </div>
-            </div>
-        )
-    }
+   
 
     renderSidebar() {
         return (
@@ -128,14 +111,48 @@ export default class Calendar extends Component {
           currentEvents: events
         });
     }
+
+     render() {
+        const { classes } = this.props;
+        const { errors, projectLoading } = this.state;
+        return (
+            <div className='general'>
+                {this.renderSidebar()}
+                <div className="test">
+                    <FullCalendar
+                        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                        headerToolbar={{
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        }}
+                        initialView='dayGridMonth'
+                        editable={true}
+                        selectable={true}
+                        selectMirror={true}
+                        dayMaxEvents={true}
+                        weekends={this.state.weekendsVisible}
+                        select={this.handleDateSelect}
+                        eventContent={renderEventContent} // custom render function
+                        eventClick={this.handleEventClick}
+                        eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+                        /* you can update a remote database when these fire:
+                        eventAdd={function(){}}
+                        eventChange={function(){}}
+                        eventRemove={function(){}}
+                        */
+                    />
+                </div>
+            </div>
+        )
+    }
 }
 
 function renderEventContent(eventInfo) {
-    console.log(eventInfo[3].deadline)
     return (
         <>
-            <b>{eventInfo[3].deadline}</b>
-            <i>{eventInfo[3].name}</i>
+            <b>{eventInfo}</b>
+            <i>{eventInfo}</i>
         </>
     )
 }
