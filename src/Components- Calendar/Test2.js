@@ -8,7 +8,7 @@ import "./Calendar.css"
 export default class Calendar extends React.Component {
 
     state = {
-        weekendsVisible: true,
+        calendarWeekends: true,
         currentEvents: []
     }
 

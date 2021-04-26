@@ -14,7 +14,7 @@ const board = {
                 {
                     id: 1,
                     title: "Wireframes",
-                    description: "imagine there is a description here"
+                    description: "color palette, key design concepts"
                 },
                 {
                     id: 2,
