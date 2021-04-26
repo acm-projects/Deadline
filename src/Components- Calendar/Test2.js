@@ -26,7 +26,6 @@ export default class Calendar extends Component {
     }
 
     componentWillMount = () => {
-        const { currentEvents } = this.state;
         this.setState({ projectLoading: true });
 
         var axios = require('axios');
@@ -36,40 +35,53 @@ export default class Calendar extends Component {
         url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
         headers: { }
         };
-
+        var self = this;
+        var count = 0;
         axios(config)
-        .then(function (response) { console.log('axios.then events') 
+        .then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 
                 var x = 0;
+                
+                var seconds, convertedDate, year, month, day, formattedDate;
+                
+                
                 if(response.data[i].tasks != null)
                     var currentTask = response.data[i].tasks[x];    
 
                 while (currentTask != undefined) {
-                        currentEvents.push({ 
-                        id: x,
-                        name: currentTask.name, 
-                        deadline: currentTask.deadline
+                        convertedDate = new Date(Date.UTC(1970, 0, 1));
+                        seconds = currentTask.deadline._seconds;
+                        convertedDate.setSeconds(seconds);
+
+                        year = convertedDate.getUTCFullYear() ;
+                        month = convertedDate.getUTCMonth() + 1;
+                        day = convertedDate.getUTCDate();
+
+                        formattedDate = year + "-" + '0' +month + "-" + day;
+
+                        events.push({ 
+                        id: count,
+                        title: currentTask.name, 
+                        date: formattedDate
                        });
 
                        x++;
-                       currentTask = response.data[i].tasks[x];
+                       count++;
+                       currentTask = response.data[i].tasks[x];      
                 }  
            }
-          console.log(currentEvents)
-          renderEventContent(currentEvents);
+          self.setState({ currentEvents: events });
+          renderEventContent(self.state.currentEvents);
         })
         .catch(function (error) {
             console.log(error);
         });
 
         this.setState({ projectLoading: false });
-        console.log('end of axios current events')     
-        
-        console.log(events)
       };
 
-    renderSidebar() { console.log("sidebar render");
+    renderSidebar() {
         return (
             <div className='demo-app-sidebar'>
                 <div className='demo-app-sidebar-section'>
@@ -105,20 +117,21 @@ export default class Calendar extends Component {
         }
     }
 
-    handleEvents = (events) => { console.log("handle events")
+    handleEvents = (events) => {
         this.setState({        
           currentEvents: events
         });
     }
 
-     render() { console.log("render")
+     render() {
         const { classes } = this.props;
         const { errors, projectLoading } = this.state;
         return (
             <div className='general'>
                 {this.renderSidebar()}
                 <div className="test">
-                    <FullCalendar
+                    <FullCalendar               
+                        
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                         headerToolbar={{
                             left: 'prev,next today',
@@ -132,9 +145,11 @@ export default class Calendar extends Component {
                         dayMaxEvents={true}
                         weekends={this.state.weekendsVisible}
                         select={this.handleDateSelect}
+                        events={this.state.currentEvents}
                         eventContent={renderEventContent} // custom render function
                         eventClick={this.handleEventClick}
-                        eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+                        
+                        //eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
                         /* you can update a remote database when these fire:
                         eventAdd={function(){}}
                         eventChange={function(){}}
@@ -147,22 +162,20 @@ export default class Calendar extends Component {
     }
 }
 
-function renderEventContent(eventInfo) { console.log("render event content"); console.log(eventInfo)
+function renderEventContent(eventInfo) {
     return (
         <>
-            <b>{eventInfo}</b>
-            <i>{eventInfo}</i>
+            <b>{eventInfo.timeText}</b>
+            <i>{eventInfo.date}</i>
         </>
     )
 }
 
-function renderSidebarEvent(event) {
-    console.log('render sb event events');
-    console.log(event[0])
+function renderSidebarEvent(event) { 
     return (
-        <li key={event[0].id}>
-            <b>{formatDate(event.deadline, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-            <i>{'  ' + event.name}</i>
+        <li key = {event.id}>
+            <b>{event.title}</b>
+            <i>{'  ' + event.date}</i>
         </li>
     )
 }
