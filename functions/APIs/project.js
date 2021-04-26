@@ -1,4 +1,70 @@
-const { db } = require('../util/admin');
+const { db, admin } = require('../util/admin');
+const firebase = require('firebase');
+const config = require('../util/config.js');
+
+firebase.initializeApp(config);
+
+async function scheduleTasks(passedID) {
+    try{
+        const projectRef = db.collection('projectInfo').doc(passedID);
+        const snapshot = await projectRef.get();
+        var startDate  = snapshot.data().dateCreate;
+        var deadline = snapshot.data().deadline;
+        var tasks = snapshot.data().tasks
+        var totalComplexity = 0;
+        var percentage = 0;
+        var taskDeadline;
+    
+        // calculate the number of days between the start and end date 
+        var tempDeadline = new Date(deadline.toDate());
+        var tempStartDate = new Date(startDate.toDate());
+        var dayDifference = Math.abs(tempDeadline - tempStartDate);
+
+        dayDifference = dayDifference / (1000 * 3600 * 24);
+       
+        // get the total complexity
+        for (let i = 0; i < tasks.length; i++) {
+            totalComplexity += snapshot.data().tasks[i].complexity;
+        }
+
+        // give every task a deadline
+        var lastDate = tempStartDate;
+        var uTaskName = {};
+        var uTaskStatus = {};
+        var uTaskDeadline = {};
+        var uTaskComplexity = {};
+      
+        for (let i = 0; i < tasks.length; i++) {
+            currentTask = snapshot.data().tasks[i];
+            percentage = currentTask.complexity / totalComplexity;
+            taskInterval = Math.round(dayDifference * percentage); 
+            taskDeadline = new Date();
+
+            taskDeadline.setDate(lastDate.getDate() + taskInterval);
+            taskDeadline.setHours(0,0,0,0);
+
+            // update to database
+            uTaskName[`tasks.${i}.name`] = currentTask.name;
+            uTaskDeadline[`tasks.${i}.deadline`] = taskDeadline;
+            uTaskStatus[`tasks.${i}.status`] = currentTask.status
+            uTaskComplexity[`tasks.${i}.complexity`] = currentTask.complexity
+            
+            const updateTask = await projectRef.update(uTaskName);
+            const updateDeadline = await projectRef.update(uTaskDeadline);
+            const updateStatus = await projectRef.update(uTaskStatus);
+            const updateComplexity = await projectRef.update(uTaskComplexity);
+
+            lastDate = taskDeadline;
+        
+        console.log(currentTask.name, '=>', currentTask.complexity, percentage, taskInterval);
+        console.log("\n");
+        }
+        
+    }
+    catch (err) {
+        console.log('Error getting documents', err);
+    }
+}
 
 exports.getAllProjects = (request, response) => {
 	db
@@ -8,16 +74,14 @@ exports.getAllProjects = (request, response) => {
 		.then((data) => {
 			let projectInfo = [];
 			data.forEach((doc) => {
+                
 			    projectInfo.push({
                     projectId: doc.id,
                     projectName: doc.data().projectName,
 					projectDesc: doc.data().projectDesc,
 					dateCreate: doc.data().dateCreate,
                     deadline: doc.data().deadline,
-                    taskName: doc.data().tasks.taskName,
-                    taskType: doc.data().tasks.taskType,
-                    taskComplexity: doc.data().tasks.taskComplexity
-
+                    tasks: doc.data().tasks
 				});
 			});
 			return response.json(projectInfo);
@@ -36,28 +100,29 @@ exports.postOneProject = (request, response) => {
     if(request.body.projectName.trim() === '') {
         return response.status(400).json({ projectName: 'Must not be empty' });
     }
-    
+
+    var now = new Date();
+    now.setHours(0,0,0,0);
+
     const newProject = {
         projectName: request.body.projectName,
         projectDesc: request.body.projectDesc,
-        dateCreate: new Date().toISOString(),
-        deadline: request.body.deadline,
-        taskName: request.body.tasks.taskName,
-        taskType: request.body.tasks.taskType,
-        taskComplexity: request.body.tasks.taskComplexity
-    
+        dateCreate: admin.firestore.Timestamp.fromDate(now),
+        deadline: admin.firestore.Timestamp.fromDate(new Date(request.body.deadline)),
+        tasks: request.body.tasks
     }
     db
         .collection('projectInfo')
-        .add(newProject)
+        .add(newProject) 
         .then((doc)=>{
             const responseProject = newProject;
             responseProject.id = doc.id;
+            scheduleTasks(responseProject.id);
             return response.json(responseProject);
         })
         .catch((err) => {
-			response.status(500).json({ error: 'Something went wrong' });
-			console.error(err);
+            console.error(err);
+			return response.status(500).json({ error: 'Something went wrong' });
 		});
 };
 
@@ -96,4 +161,3 @@ exports.editProject = ( request, response ) => {
         });
     });
 };
-

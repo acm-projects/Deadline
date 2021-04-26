@@ -22,6 +22,7 @@ class Newtask extends Component {
 
     this.state = {
       taskLoading: false,
+      tasks: "",
       taskName: "",
       taskType: "",
       taskComplexity: ""
@@ -48,12 +49,28 @@ class Newtask extends Component {
     
     event.preventDefault();
     this.setState({ taskLoading: true });
+    var axios = require('axios');
+    
+    var config = {
+      method: 'post',
+      url: 'http://localhost:5000/deadline-17bb4/us-central1/api/project',
+      headers: { }
+    };
+
+    // axios(config)
+    // .then(function (response) {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
     const taskData = {
       taskName: this.state.taskName,
       taskType: this.state.taskType,
       taskComplexity: this.state.taskComplexity,
     };
-    axios
+    axios(config)
       .post(
         "https://us-central1-deadline-17bb4.cloudfunctions.net/api/project",
          taskData
