@@ -55,7 +55,7 @@
     color: black;
    
     column-span: initial;
-    left:72%;
+    left:69%;
     top: 230px;
     position: absolute;
     font-weight: bold;
@@ -76,6 +76,13 @@
     column-span: initial;
     
 }
+.inputText1 {
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    
+    
+}
 .inputTextformat {
     font-size: 20px;
     color: black;
@@ -87,9 +94,8 @@
 
 .inputright {
     font-size: 20px;
-    color: black;
+    color: red;
     
-    column-span: initial;
     left: 60%;
     
   
@@ -130,8 +136,9 @@
 }
 .donebutton {
     color: red;
+    left: 5%;
 }
 .submitbutton {
-    left: 70%;
-    color: green;
+    left: 80%;
+    
 }

@@ -55,13 +55,20 @@ export default function Dashboard() {
 
 
              <Box className="dashboardToolbar" >
-                     <header className='headerPrompt' verticalalign='center'>Project Name </header>
-                     <Typography align='right'>Expected Deadline Date</Typography>
+                     <header className='headerPrompt' >Project Name </header>
+                     <Typography className="date">June 1st, 2020</Typography>
                      </Box>
                   <div className="blankSection"> <Box className="today2" id="tasks-today"> <Typography align='left'>1. Create wireframes</Typography></Box>
              
-             <Box className="today"><center>Taskss for today</center></Box>
+             <Box className="today"><center>Tasks for today</center></Box>
+
              <Box className="progress3"><center>Current task</center></Box>
+             <Box className="teamupdates"><center>Team Updates</center></Box>
+             <Box className="teamupdatescontent">1. Meeting on Friday</Box>
+             <Box className="assigned"><center>Assigned to you</center></Box>
+             <Box className="assignedcontent">1. Present well</Box>
+             <Box className="external"><center>External Resources</center></Box>
+             <Box className="externalcontent">GitHub</Box>
              
              </div>  
              <div className="bottomSection"><LinearWithValueLabel />

@@ -157,19 +157,16 @@ class newprj extends Component {
 ​          <div>
           <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
         <Newtask /><center>
-            <Button>
+            <Button variant="contained">
               Add another task
                     </Button></center> 
 
-          <Button className='donebutton' id='done ' onClick={this.handleChange}>Done Adding Tasks</Button>
+          <Button className='donebutton' id='done ' onClick={this.handleChange} variant="contained">Done Adding Tasks</Button>
     
-          <Button className='submitbutton' id='done ' type='add'
-            className='style'
+          <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
+            className='submitbutton'
             onClick={this.handleClick} >Submit Project!</Button>
-          <Newtask /> 
-          <Button className='submitbutton' id='done ' type='add'
-            
-            onClick={this.handleClick} >Submit Project!</Button>
+          
           </div>
         </div> 
         );

@@ -81,6 +81,7 @@ class Newtask extends Component {
         return (
             <div className='bg' >
         <form className='inputText' noValidate autoComplete="off">
+        <Typography className='inputText1'><b>1. Task Name</b></Typography>
              <TextField id="taskName" variant="filled" label="Task Name" name="taskName"
               onChange={this.handleChange}
               value={this.state.taskName}
@@ -107,6 +108,9 @@ class Newtask extends Component {
                         </MenuItem>
                         <MenuItem value="Design">
                           Design
+                        </MenuItem>
+                        <MenuItem value="Other">
+                          Other
                         </MenuItem>
                       </Select>
                     </FormControl>
