@@ -3,16 +3,16 @@
   
     height: 80px;
     width: 150px;
-    left: 30%;
+    left: 45%;
     font-family: Magra, sans-serif;
   
-    background-color: black;
+    background-color: rgb(180, 65, 65);
     position: absolute;
    
 }
 
 .fastbutton
-{
+{ left: 15%;
     
     height: 80px;
     width: 150px;
@@ -20,7 +20,7 @@
     
     font-family: Magra, sans-serif;
     color: black;
-    background-color: red;
+    background-color: rgb(68, 209, 99);
     position: absolute;
    
 }

@@ -13,17 +13,19 @@
 
 .today2 {
     position: absolute;
-    top: 215px;
+    top: 260px;
     left: 50px;
     background-color: #6fbdb7;
     width: 20%;
-    height: 250px;
+    height: 200px;
     right:77.5%;
     font-size: 20px;
     font-family: Magra, sans-serif;
     color: black;
     flex-direction: row;
     text-indent: 2px;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .task {
@@ -47,7 +49,82 @@
     font-family: Magra, sans-serif;
     color: white;
 }
+.teamupdates {
+    flex-direction: row;
+    top: 215px;
+    position: absolute;
+    background-color: #034b46;
+    width: 15%;
+    left: 57.5%;
+    font-size: 25px;
+    font-family: Magra, sans-serif;
+    color: white;
+}
+.teamupdatescontent {
+    flex-direction: row;
+    top: 252px;
+    height: 200px;
+    position: absolute;
+    background-color: #51b4ee;
+    width: 15%;
+    left: 57.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: white;
+    align-items: justify;
+    padding: 5px;
+}
+.assigned {
+    flex-direction: row;
+    top: 215px;
+    position: absolute;
+    background-color: #034b46;
+    width: 15%;
+    left: 73.5%;
+    font-size: 25px;
+    font-family: Magra, sans-serif;
+    color: white;
+}
+.assignedcontent {
+    flex-direction: row;
+    top: 252px;
+    height: 200px;
+    position: absolute;
+    background-color: #e795d9;
+    width: 15%;
+    left: 73.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: white;
+    align-items: justify;
+    padding: 5px;
+}
 
+.external {
+    flex-direction: row;
+    top: 490px;
+    position: absolute;
+    background-color: #034b46;
+    width: 31%;
+    left: 57.5%;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: white;
+    padding-left: 10px;
+}
+.externalcontent {
+    flex-direction: row;
+    top: 520px;
+    position: absolute;
+    background-color: #50a8a2a4;
+    width: 31%;
+    height: 60px;
+    left: 57.5%;
+    font-size: 25px;
+    font-family: Magra, sans-serif;
+    color: white;
+    padding-left: 10px;
+}
 .progress4 {
     position: absolute;
     background-color: #E2DAAC;

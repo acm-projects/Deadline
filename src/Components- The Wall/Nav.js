@@ -34,14 +34,15 @@ export default function DenseAppBar() {
                 <a style={{textDecorationLine:'none'}} href="/">
                     <ColorButton>Home</ColorButton>
                 </a>
+                <a style={{textDecorationLine:'none'}} href="/newproject">
+                <ColorButton>New Project</ColorButton>
+                </a>
 
                 <a style={{textDecorationLine:'none'}} href="/calendar">
                 <ColorButton>Calendar View</ColorButton>
                 </a>
 
-                <a style={{textDecorationLine:'none'}} href="/newproject">
-                <ColorButton>New Project</ColorButton>
-                </a>
+                
 
                 <a style={{textDecorationLine:'none'}} href="/thewall">
                 <ColorButton>The Wall</ColorButton>
@@ -51,9 +52,9 @@ export default function DenseAppBar() {
                 <ColorButton>Dashboard</ColorButton>
                 </a>
 
-                <ColorButton>Sharing Options</ColorButton>
+                
                 <ColorButton>Help</ColorButton>
-                <ColorButton>Change Project</ColorButton>
+                
             </Toolbar>
         </div>
     );

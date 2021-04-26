@@ -21,12 +21,12 @@ export default function CustomizedButtons() {
     return (
         <div>
             <center>
-                <ColorButton className='slowbutton'>
+                <ColorButton className='slowbutton' variant="contained">
                     Want to take things slower?
                 </ColorButton>
                 
-                <ColorButton className='fastbutton'>
-                    Want to speed things up
+                <ColorButton className='fastbutton' variant="contained">
+                    Want to speed things up?
                 </ColorButton>
             </center>
         </div>

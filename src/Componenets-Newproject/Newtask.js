@@ -22,6 +22,7 @@ class Newtask extends Component {
 
     this.state = {
       taskLoading: false,
+      tasks: "",
       taskName: "",
       taskType: "",
       taskComplexity: ""
@@ -48,12 +49,28 @@ class Newtask extends Component {
     
     event.preventDefault();
     this.setState({ taskLoading: true });
+    var axios = require('axios');
+    
+    var config = {
+      method: 'post',
+      url: 'http://localhost:5000/deadline-17bb4/us-central1/api/project',
+      headers: { }
+    };
+
+    // axios(config)
+    // .then(function (response) {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
     const taskData = {
       taskName: this.state.taskName,
       taskType: this.state.taskType,
       taskComplexity: this.state.taskComplexity,
     };
-    axios
+    axios(config)
       .post(
         "https://us-central1-deadline-17bb4.cloudfunctions.net/api/project",
          taskData
@@ -81,6 +98,7 @@ class Newtask extends Component {
         return (
             <div className='bg' >
         <form className='inputText' noValidate autoComplete="off">
+        <Typography className='inputText1'><b>1. Task Name</b></Typography>
              <TextField id="taskName" variant="filled" label="Task Name" name="taskName"
               onChange={this.handleChange}
               value={this.state.taskName}
@@ -108,6 +126,9 @@ class Newtask extends Component {
                         <MenuItem value="Design">
                           Design
                         </MenuItem>
+                        <MenuItem value="Other">
+                          Other
+                        </MenuItem>
                       </Select>
                     </FormControl>
     <Typography id="discrete-slider-small-steps" gutterBottom>
@@ -122,7 +143,6 @@ class Newtask extends Component {
         marks
         min={0}
         max={5}
-        
         valueLabelDisplay="auto"
         id="difficulty-slider"
         className ='slider'
