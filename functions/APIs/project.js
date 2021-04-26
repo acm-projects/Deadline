@@ -161,4 +161,3 @@ exports.editProject = ( request, response ) => {
         });
     });
 };
-
