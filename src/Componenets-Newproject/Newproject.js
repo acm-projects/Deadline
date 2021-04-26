@@ -54,6 +54,7 @@ class newprj extends Component {
 
   handleClick = (event) => {
     //setAnchorEl(event.currentTarget);
+    alert("Your project is submitted successfully!");
     event.preventDefault();
     this.setState({ projectLoading: true });
     const projectData = {
@@ -153,7 +154,7 @@ class newprj extends Component {
               value={this.state.projectDesc} />
               </form>
           </form>
-​          <div>
+         <div>
           <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
         <Newtask /><center>
             <Button variant="contained">
@@ -165,7 +166,7 @@ class newprj extends Component {
           <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
             className='submitbutton'
             onClick={this.handleClick} >Submit Project!</Button>
-          
+
           </div>
         </div> 
         );
