@@ -26,11 +26,11 @@ export default class Calendar extends Component {
     }
 
     componentWillMount = () => {
+        const { currentEvents } = this.state;
         this.setState({ projectLoading: true });
 
         var axios = require('axios');
         var events = [];
-
         var config = {
         method: 'get',
         url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
@@ -38,39 +38,38 @@ export default class Calendar extends Component {
         };
 
         axios(config)
-        .then(function (response) {
+        .then(function (response) { console.log('axios.then events') 
             for (let i = 0; i < response.data.length; i++) {
                 
                 var x = 0;
-                var currentTask = response.data[i].tasks[x];
+                if(response.data[i].tasks != null)
+                    var currentTask = response.data[i].tasks[x];    
 
                 while (currentTask != undefined) {
-                        events.push({ 
+                        currentEvents.push({ 
+                        id: x,
                         name: currentTask.name, 
                         deadline: currentTask.deadline
                        });
 
                        x++;
                        currentTask = response.data[i].tasks[x];
-                }
+                }  
            }
-           console.log(events)
-           renderEventContent(events);
+          console.log(currentEvents)
+          renderEventContent(currentEvents);
         })
         .catch(function (error) {
             console.log(error);
         });
 
-        this.setState({
-            projectLoading: false
-        });
+        this.setState({ projectLoading: false });
+        console.log('end of axios current events')     
         
         console.log(events)
       };
 
-   
-
-    renderSidebar() {
+    renderSidebar() { console.log("sidebar render");
         return (
             <div className='demo-app-sidebar'>
                 <div className='demo-app-sidebar-section'>
@@ -106,13 +105,13 @@ export default class Calendar extends Component {
         }
     }
 
-    handleEvents = (events) => {
+    handleEvents = (events) => { console.log("handle events")
         this.setState({        
           currentEvents: events
         });
     }
 
-     render() {
+     render() { console.log("render")
         const { classes } = this.props;
         const { errors, projectLoading } = this.state;
         return (
@@ -148,7 +147,7 @@ export default class Calendar extends Component {
     }
 }
 
-function renderEventContent(eventInfo) {
+function renderEventContent(eventInfo) { console.log("render event content"); console.log(eventInfo)
     return (
         <>
             <b>{eventInfo}</b>
@@ -158,8 +157,10 @@ function renderEventContent(eventInfo) {
 }
 
 function renderSidebarEvent(event) {
+    console.log('render sb event events');
+    console.log(event[0])
     return (
-        <li key={event.id}>
+        <li key={event[0].id}>
             <b>{formatDate(event.deadline, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
             <i>{'  ' + event.name}</i>
         </li>
