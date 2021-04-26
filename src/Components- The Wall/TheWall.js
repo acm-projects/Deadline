@@ -32,6 +32,7 @@ function TheWall() {
             <Box className="bottom"/>
             <Drag/>*/}
             <DragTest/>
+         
         </div>
     );
 }

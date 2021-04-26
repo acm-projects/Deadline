@@ -98,6 +98,7 @@ class Newtask extends Component {
         return (
             <div className='bg' >
         <form className='inputText' noValidate autoComplete="off">
+        <Typography className='inputText1'><b>1. Task Name</b></Typography>
              <TextField id="taskName" variant="filled" label="Task Name" name="taskName"
               onChange={this.handleChange}
               value={this.state.taskName}
@@ -125,6 +126,9 @@ class Newtask extends Component {
                         <MenuItem value="Design">
                           Design
                         </MenuItem>
+                        <MenuItem value="Other">
+                          Other
+                        </MenuItem>
                       </Select>
                     </FormControl>
     <Typography id="discrete-slider-small-steps" gutterBottom>
@@ -139,7 +143,6 @@ class Newtask extends Component {
         marks
         min={0}
         max={5}
-        
         valueLabelDisplay="auto"
         id="difficulty-slider"
         className ='slider'
