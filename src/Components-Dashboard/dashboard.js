@@ -55,26 +55,43 @@ export default function Dashboard() {
 
 
              <Box className="dashboardToolbar" >
-                     <header className='headerPrompt' >Project Name </header>
-                     <Typography className="date">June 1st, 2020</Typography>
+                     <header className='headerPrompt' >Test Project Name </header>
+                     <header className='headerPromptright' >June 1st, 2020 </header>
+                    
                      </Box>
-                  <div className="blankSection"> <Box className="today2" id="tasks-today"> <Typography align='left'>1. Create wireframes</Typography></Box>
+                  <div className="blankSection"> <Box className="today2" id="tasks-today"> <Typography align='left'>1. Win ACM Projects
+                  
+                  </Typography>
+                  <Typography align='left'>2. Work hard, play hard
+                  
+                  </Typography></Box>
              
              <Box className="today"><center>Tasks for today</center></Box>
 
              <Box className="progress3"><center>Current task</center></Box>
+             <Box className="today3"><Typography align='left'>1. Demonstrate live and don't forget to smile
+                  
+                  </Typography><Typography align='left'>2. Talk slowly its not a race
+                  
+                  </Typography></Box>
              <Box className="teamupdates"><center>Team Updates</center></Box>
-             <Box className="teamupdatescontent">1. Meeting on Friday</Box>
+             <Box className="teamupdatescontent">
+             <Typography align='left'>1. Meeting on Friday
+                  
+                  </Typography></Box>
              <Box className="assigned"><center>Assigned to you</center></Box>
-             <Box className="assignedcontent">1. Present well</Box>
+             <Box className="assignedcontent"><Typography align='left'>1. Get coffee for next week's social
+                  
+                  </Typography></Box>
              <Box className="external"><center>External Resources</center></Box>
              <Box className="externalcontent">
              <img className="logogit" src={logo} alt="Image cannot be loaded" />
              </Box>
              </div>  
-             <div className="bottomSection"><LinearWithValueLabel />
+             <div className="bottomSection">
+               <center><LinearWithValueLabel /> </center>
              <CustomizedButtons />
-             
+            
              </div>
              
 

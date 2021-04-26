@@ -3,7 +3,7 @@
   
     height: 80px;
     width: 150px;
-    left: 45%;
+    right: 6%;
     font-family: Magra, sans-serif;
   
     background-color: rgb(180, 65, 65);
@@ -12,7 +12,7 @@
 }
 
 .fastbutton
-{ left: 15%;
+{ right: 1%;
     
     height: 80px;
     width: 150px;

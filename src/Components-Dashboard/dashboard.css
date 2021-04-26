@@ -11,7 +11,17 @@
     height: 0.001px;
     vertical-align: center;
     line-height: 2.5;
-    margin-left: 25px;
+    margin-left: 46px;
+}
+.headerPromptright {
+    position: center;
+    font-family: Raleway, sans-serif;
+    font-size: 40px;
+    color: white;
+    height: 0.001px;
+    vertical-align: center;
+    line-height: 2.5;
+    margin-left: 83%;
 }
 .subHeading {
     position: center;
@@ -69,7 +79,7 @@
 
   .bottomSection{
       position: bottom;
-      height: 200px;
+      height: 300px;
       vertical-align: bottom;
       justify-items: center;
     align-content: bottom;
@@ -78,10 +88,6 @@
   }
   .date{
    color: red;
-  
-   position: relative;
-  
-   left: 80%;
 }
 .logogit{
     height: 50px;
