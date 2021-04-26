@@ -14,7 +14,7 @@ import Slider from '@material-ui/core/Slider';
 import { positions } from '@material-ui/system';
 import {withStyles} from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
-
+import logo from './github-logo.png';
 import "./Columns.css";
 import "./Nav.css";
 
@@ -68,8 +68,9 @@ export default function Dashboard() {
              <Box className="assigned"><center>Assigned to you</center></Box>
              <Box className="assignedcontent">1. Present well</Box>
              <Box className="external"><center>External Resources</center></Box>
-             <Box className="externalcontent">GitHub</Box>
-             
+             <Box className="externalcontent">
+             <img className="logogit" src={logo} alt="Image cannot be loaded" />
+             </Box>
              </div>  
              <div className="bottomSection"><LinearWithValueLabel />
              <CustomizedButtons />
