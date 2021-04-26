@@ -99,7 +99,7 @@ class DragTest extends Component {
         const { classes } = this.props;
         const { errors, dragLoading } = this.state;
     return (
-        <Board
+       <Board
             allowRemoveLane
             allowRenameColumn
             allowRemoveCard
