@@ -24,7 +24,7 @@ const board = {
                 {
                     id: 3,
                     title: "The Wall functionality",
-                    description: ""
+                    description: "focus on draggable and droppable bars"
                 }
             ]
         },
@@ -35,7 +35,7 @@ const board = {
                 {
                     id: 9,
                     title: "Integrate backend with frontend",
-                    description: ""
+                    description: "send and retrieve database by firebase"
                 }
             ]
         },
@@ -46,7 +46,7 @@ const board = {
                 {
                     id: 10,
                     title: "Homepage UI improvement",
-                    description: ""
+                    description: "change the color based on the color palette"
                 }
             ]
         },
@@ -57,7 +57,7 @@ const board = {
                 {
                     id: 11,
                     title: "Meeting with team before working on slides",
-                    description: ""
+                    description: "8pm every Tuesday"
                 }
             ]
         }

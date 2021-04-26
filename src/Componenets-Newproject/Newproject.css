@@ -124,10 +124,9 @@
 }
 
 .quote {
-    position: relative;
     font-size: 20px;
     color: white;
-    padding: 2%;
+    padding: 7%;
 }
 .slider {
     padding: 20%;
