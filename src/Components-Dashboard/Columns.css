@@ -27,7 +27,21 @@
     padding-top: 5px;
     padding-left: 5px;
 }
-
+.today3 {
+    position: absolute;
+    top: 260px;
+    left: 27.5%;
+    background-color: #6fbdb7;
+    width: 20%;
+    height: 200px;
+    font-size: 20px;
+    font-family: Magra, sans-serif;
+    color: black;
+    flex-direction: row;
+    text-indent: 2px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
 .task {
     position: relative;
     top: 30px;
