@@ -1,6 +1,25 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import "./Dragbar.css"
+import axios from "axios"
+/*
+const admin = require('firebase-admin');
+async function getData () {
+    const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      };
+
+      const {
+        data: { data }
+      } = await axios.get("https://us-central1-deadline-17bb4.cloudfunctions.net/api/projects", config);  
+    //console.log(data);
+}
+
+
+getData();*/
 
 const Tasks = [
     {

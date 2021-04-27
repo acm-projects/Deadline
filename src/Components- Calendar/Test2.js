@@ -20,7 +20,7 @@ export default class Calendar extends Component {
             tasks: "",
             taskName: "",
             taskDeadline: "",
-            weekendsVisible: true,
+            //weekendsVisible: true,
             currentEvents: [],
             events: []
         };
@@ -58,12 +58,21 @@ export default class Calendar extends Component {
                         year = convertedDate.getUTCFullYear() ;
                         month = convertedDate.getUTCMonth() + 1;
                         day = convertedDate.getUTCDate();
+                        var convertedMonth, convertedDay;
 
                         if(month < 10) {
-                            formattedDate = year + "-" + '0' + month + "-" + day;
+                            convertedMonth = '0' + month;
                         } else {
-                            formattedDate = year + "-"  + month + "-" + day;
+                            convertedMonth = month;
                         }
+
+                        if(day < 10) {
+                            convertedDay = '0' + day
+                        } else {
+                            convertedDay = day
+                        }
+
+                        formattedDate = year + "-"  + convertedMonth + "-" + convertedDay;
 
                         events.push({ 
                         id: count,
@@ -102,13 +111,14 @@ export default class Calendar extends Component {
             </div>
         )
     }
-
+/*
     handleWeekendsToggle = () => {
+    
         this.setState({
             weekendsVisible: !this.state.weekendsVisible
         })
     }
-
+*/
     handleDateSelect = (selectInfo) => {
         let title = prompt('Enter your task')
         let calendarApi = selectInfo.view.calendar
@@ -134,9 +144,9 @@ export default class Calendar extends Component {
         const { classes } = this.props;
         const { errors, projectLoading } = this.state;
         //{this.renderSidebar()} //move back to the return
-        return (
+        return (    
             <div className='general'>
-                
+                {this.renderSidebar()}
                 <div className="test">
                     <FullCalendar               
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -150,10 +160,10 @@ export default class Calendar extends Component {
                         selectable={true}
                         selectMirror={true}
                         dayMaxEvents={true}
-                        weekends={this.state.weekendsVisible}
+                        weekends={true}
                         select={this.handleDateSelect}
-                        //events={this.state.currentEvents}
-                        
+                        events={this.state.currentEvents}
+                        /*
                         events={[
                             { title: 'wireframes', date: "2021-04-04"},
                             { title: 'presentation prep', date: "2021-04-28"},
@@ -162,7 +172,7 @@ export default class Calendar extends Component {
                             { title: 'homepage UI', date:'2021-04-26' },
                             { title: 'meet with team', date: '2021-04-14'}
                           ]}
-                          
+                          */
                         eventContent={renderEventContent} // custom render function
                         eventClick={this.handleEventClick}
                         

@@ -13,3 +13,6 @@ ReactDOM.render(
     </Router>,
     document.getElementById("root"));
 
+const admin = require('firebase-admin');
+
+admin.initializeApp();

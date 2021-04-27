@@ -38,6 +38,7 @@
     font-family: Raleway, sans-serif;
     top: 400px;
     position: absolute;
+    height: 20px;
 }
 .promptStatementright {
     font-size: x-large;
@@ -116,7 +117,7 @@
     padding-right: 10px;
     left: 10%;
     width: 80%;
-    top: 200px;
+    top: 180px;
 }
 .inputBox {
     font-size: 20px;
@@ -144,15 +145,15 @@
     width: 10%;
     padding-left: 10px;
     position: absolute;
-    top: 355px;
+    top: 375px;
     left: 79%;
 }
 
 .widthbox1 {
     width: 10%;
-    padding-left: 10px;
+    left: 10%;
     position: absolute;
-    top: 500px;
+    top: 425px;
 }
 
 .difficulty {

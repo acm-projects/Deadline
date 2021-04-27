@@ -8,10 +8,10 @@ const {
     getAllProjects,
     postOneProject,
     deleteProject,
-    editProject
+    editProject,
 } = require('./APIs/project')
 
-app.get('/projects', getAllProjects);
+app.get("/projects", getAllProjects);
 app.post('/project', postOneProject);
 app.delete('/project/:projectId', deleteProject);
 app.put('/project/:projectId', editProject);
