@@ -150,16 +150,16 @@ export default class Calendar extends Component {
                         dayMaxEvents={true}
                         weekends={this.state.weekendsVisible}
                         select={this.handleDateSelect}
-                        events={this.state.currentEvents}
-                        /*
+                        //events={this.state.currentEvents}
+                        
                         events={[
-                            { title: 'wireframes', date: "2021-04-04"/*start: '2021-04-04T00:00:00', end: '2021-04-04T05:00:00'},
+                            { title: 'wireframes', date: "2021-04-04"/*start: '2021-04-04T00:00:00', end: '2021-04-04T05:00:00'*/},
                             { title: 'presentation prep', start: '2021-04-12T00:00:00', end: '2021-04-12T05:00:00' },
-                            { title: 'the wall functionality', start: '2021-04-16T00:00:00', end: '2021-04-16T05:00:00' },
-                            { title: 'integrate backend with frontend', start: '2021-04-20T00:00:00', end: '2021-04-20T05:00:00' },
-                            { title: 'homepage UI improvement', start: '2021-04-26T00:00:00', end: '2021-04-26T05:00:00' },
+                            { title: 'the wall functionality', date:'2021-04-16' },
+                            { title: 'integrate backend with frontend', date:'2021-04-20' },
+                            { title: 'homepage UI improvement', date:'2021-04-26' },
                             { title: 'meet with team', start: '2021-04-29T00:00:00', end: '2021-04-29T05:00:00' }
-                          ]}*/
+                          ]}
                           
                         eventContent={renderEventContent} // custom render function
                         eventClick={this.handleEventClick}
