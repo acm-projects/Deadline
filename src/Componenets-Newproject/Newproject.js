@@ -17,6 +17,7 @@ import Newtask from './Newtask';
 import { withStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import classNames from "classnames";
+import { FormControl, FormControlLabel, InputLabel, Select} from "@material-ui/core";
 //import { firestore } from "./firestore"
 
 class newprj extends Component {
@@ -29,7 +30,7 @@ class newprj extends Component {
       projectName: "",
       projectDesc: "",
       deadline: "",
-     
+      tasks: []
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -61,11 +62,11 @@ class newprj extends Component {
       projectName: this.state.projectName,
       projectDesc: this.state.projectDesc,
       deadline: this.state.deadline,
-      tasks: this.state.tasks
+      tasks: this.state.tasks,
     };
     axios
       .post(
-        "https://us-central1-deadline-17bb4.cloudfunctions.net/api/project",
+        "http://localhost:5000/deadline-17bb4/us-central1/api/project",
         projectData
       )
 
@@ -83,6 +84,20 @@ class newprj extends Component {
         });
       });
 
+  };
+
+  handleTasks = (event) => {
+    var tempTasks = [];
+    
+    tempTasks.push({
+      name: this.state.tasks,
+      status: "Next Up",
+      complexity: 5
+    })
+
+    this.setState({tasks: tempTasks})
+    
+    
   };
 
   ColorButton = withStyles((theme) => ({
@@ -103,6 +118,7 @@ class newprj extends Component {
   render() {
     const { classes } = this.props;
     const { errors, projectLoading } = this.state;
+    const valuetext = (value) => `${value}`
 
     return (
 
@@ -156,12 +172,69 @@ class newprj extends Component {
           </form>
          <div>
           <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
-        <Newtask /><center>
+          <div className='bg' >
+        <form className='inputText' noValidate autoComplete="off">
+        <Typography className='inputText1'><b>1. Task Name</b></Typography>
+             <TextField id="tasks" variant="filled" label="Task Name" name="tasks"
+              onChange={this.handleChange}
+              value={this.state.tasks}
+              />
+                      
+        </form>
+<Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
+        <FormControl fullWidth variant="outlined" margin="dense">
+                      <InputLabel>Task Type</InputLabel>
+                      <Select
+                        label="Task Type"
+                        name="taskType"
+                        value={this.state.tasks}
+                        onChange={this.handleChange}
+                      >
+                        <MenuItem selected value="Coding">
+                          Coding
+                        </MenuItem>
+                        <MenuItem value="Presentation">
+                          Presentation
+                        </MenuItem>
+                        <MenuItem value="Writing">
+                          Writing
+                        </MenuItem>
+                        <MenuItem value="Design">
+                          Design
+                        </MenuItem>
+                        <MenuItem value="Other">
+                          Other
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+    <Typography id="discrete-slider-small-steps" gutterBottom>
+        Difficulty Scale
+      </Typography>
+    
+      <Slider
+        defaultValue={0.5}
+        //getAriaValueText={valuetext}
+        aria-labelledby="discrete-slider-steps"
+        step={1}
+        marks
+        min={0}
+        max={5}
+        valueLabelDisplay="auto"
+        id="difficulty-slider"
+        className ='slider'
+        getAriaValueText={valuetext} 
+        onChange={this.handleChange}
+        valuetext={this.state.tasks}
+
+      />
+    
+                </div>      
+       <center>
             <Button variant="contained">
               Add another task
                     </Button></center> 
 
-          <Button className='donebutton' id='done ' onClick={this.handleChange} variant="contained">Done Adding Tasks</Button>
+          <Button className='donebutton' id='done ' onClick={this.handleTasks} variant="contained">Done Adding Tasks</Button>
     
           <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
             className='submitbutton'

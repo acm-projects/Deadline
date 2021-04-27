@@ -35,7 +35,7 @@ export default class Calendar extends Component {
         url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
         headers: { }
         };
-        
+
         var self = this;
         var count = 0;
         axios(config)
@@ -45,7 +45,6 @@ export default class Calendar extends Component {
                 var x = 0;
                 
                 var seconds, convertedDate, year, month, day, formattedDate;
-                console.log('in the then request')
                 
                 if(response.data[i].tasks != null && response.data[i].tasks[x].deadline != null)
                     var currentTask = response.data[i].tasks[x];    
@@ -74,10 +73,10 @@ export default class Calendar extends Component {
                        x++;
                        count++;
                        currentTask = response.data[i].tasks[x];      
-                }  
+                }  console.log(events);
            }
           self.setState({ currentEvents: events });
-          console.log('test');
+    
           console.log(self.state.currentEvents)
           renderEventContent(self.state.currentEvents);
         })
@@ -179,7 +178,6 @@ export default class Calendar extends Component {
 }
 
 function renderEventContent(eventInfo) {
-    console.log(eventInfo)
     return (
         <>
             <b>{eventInfo.event._def.title}</b>
