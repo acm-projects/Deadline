@@ -4,6 +4,12 @@ const config = require('../util/config.js');
 
 firebase.initializeApp(config);
 
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
 async function scheduleTasks(passedID) {
     try{
         const projectRef = db.collection('projectInfo').doc(passedID);
@@ -19,6 +25,7 @@ async function scheduleTasks(passedID) {
         var tempDeadline = new Date(deadline.toDate());
         var tempStartDate = new Date(startDate.toDate());
         var dayDifference = Math.abs(tempDeadline - tempStartDate);
+        var referenceDate = new Date(Date.UTC(1970, 0, 1));
 
         dayDifference = dayDifference / (1000 * 3600 * 24);
        
@@ -38,11 +45,12 @@ async function scheduleTasks(passedID) {
             currentTask = snapshot.data().tasks[i];
             percentage = currentTask.complexity / totalComplexity;
             taskInterval = Math.round(dayDifference * percentage); 
-            taskDeadline = new Date();
-
-            taskDeadline.setDate(lastDate.getDate() + taskInterval);
+            taskDeadline = new Date(lastDate);
+            
+            taskDeadline = taskDeadline.addDays(taskInterval);
             taskDeadline.setHours(0,0,0,0);
-
+            console.log(taskDeadline)
+            
             // update to database
             uTaskName[`tasks.${i}.name`] = currentTask.name;
             uTaskDeadline[`tasks.${i}.deadline`] = taskDeadline;
@@ -56,7 +64,7 @@ async function scheduleTasks(passedID) {
 
             lastDate = taskDeadline;
         
-        console.log(currentTask.name, '=>', currentTask.complexity, percentage, taskInterval);
+        console.log(currentTask.name, '=>', taskDeadline, currentTask.complexity, percentage, taskInterval);
         console.log("\n");
         }
         
@@ -102,12 +110,14 @@ exports.postOneProject = (request, response) => {
     }
 
     var now = new Date();
+    var tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
     now.setHours(0,0,0,0);
 
     const newProject = {
         projectName: request.body.projectName,
         projectDesc: request.body.projectDesc,
-        dateCreate: admin.firestore.Timestamp.fromDate(now),
+        dateCreate: admin.firestore.Timestamp.fromDate(tomorrow),
         deadline: admin.firestore.Timestamp.fromDate(new Date(request.body.deadline)),
         tasks: request.body.tasks
     }

@@ -31,7 +31,8 @@ class newprj extends Component {
       projectDesc: "",
       deadline: "",
       tasks: [],
-      tempTasks: []
+      tempTasks: [],
+      complexity: ""
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -88,10 +89,13 @@ class newprj extends Component {
   };
 
   handleTasks = (event) => {
+    var complexityInt = parseInt(this.state.complexity)
+    
     this.state.tempTasks.push({
       name: this.state.tasks,
       status: "Next Up",
-      complexity: 5
+      type: this.state.type,
+      complexity: complexityInt
     })
     var tempTasks2 = this.state.tempTasks;
     this.setState({tasks: []})
@@ -186,7 +190,7 @@ class newprj extends Component {
                       <Select
                         label="Task Type"
                         name="taskType"
-                        value={this.state.tasks}
+                        value={this.state.type}
                         onChange={this.handleChange}
                       >
                         <MenuItem selected value="Coding">
@@ -206,7 +210,7 @@ class newprj extends Component {
                         </MenuItem>
                       </Select>
                     </FormControl>
-    <Typography id="discrete-slider-small-steps" gutterBottom>
+   {/* <Typography id="discrete-slider-small-steps" gutterBottom>
         Difficulty Scale
       </Typography>
     
@@ -225,15 +229,22 @@ class newprj extends Component {
         onChange={this.handleChange}
         valuetext={this.state.tasks}
 
-      />
-    
+        />*/}
+        <form className='input' noValidate autoComplete="off">
+        <Typography className='input'><b>3. Task Complexity</b></Typography>
+             <TextField id="complexity" variant="filled" label="Task Complexity" name="complexity"
+              onChange={this.handleChange}
+              value={this.state.complexity}
+              />
+        </form>
+
                 </div>      
        <center>
             <Button variant="contained" onClick={this.handleTasks}>
               Add another task
                     </Button></center> 
 
-          <Button className='donebutton' id='done ' onClick={this.handleTasks} variant="contained">Done Adding Tasks</Button>
+          <Button className='donebutton' id='done ' variant="contained">Done Adding Tasks</Button>
     
           <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
             className='submitbutton'
