@@ -12,11 +12,6 @@ const board = {
             title: "Next Up",
             cards: [
                 {
-                    id: 1,
-                    title: "Wireframes",
-                    description: "color palette, key design concepts"
-                },
-                {
                     id: 2,
                     title: "Presentation Prep",
                     description: ""
@@ -47,6 +42,11 @@ const board = {
                     id: 10,
                     title: "Homepage UI improvement",
                     description: "change the color based on the color palette"
+                },
+                {
+                    id: 1,
+                    title: "Wireframes",
+                    description: "color palette, key design concepts"
                 }
             ]
         },

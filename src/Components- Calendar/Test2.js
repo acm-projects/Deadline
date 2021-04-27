@@ -156,11 +156,11 @@ export default class Calendar extends Component {
                         
                         events={[
                             { title: 'wireframes', date: "2021-04-04"},
-                            { title: 'presentation prep', start: '2021-04-12T00:00:00', end: '2021-04-12T05:00:00' },
+                            { title: 'presentation prep', date: "2021-04-28"},
                             { title: 'the wall functionality', date:'2021-04-16' },
-                            { title: 'integrate backend with frontend', date:'2021-04-20' },
-                            { title: 'homepage UI improvement', date:'2021-04-26' },
-                            { title: 'meet with team', start: '2021-04-29T00:00:00', end: '2021-04-29T05:00:00' }
+                            { title: 'integrate backend', date:'2021-04-20' },
+                            { title: 'homepage UI', date:'2021-04-26' },
+                            { title: 'meet with team', date: '2021-04-14'}
                           ]}
                           
                         eventContent={renderEventContent} // custom render function
