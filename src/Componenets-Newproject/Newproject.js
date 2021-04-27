@@ -106,31 +106,21 @@ class newprj extends Component {
 
     return (
 
-      <div class='bg'>
+      <div>
         <DenseAppBar />
-
-
         <Box className="newprojectToolbar" color='red'>
           <header className='headerPrompt'><center>Welcome! Let's get you started</center></header>
           <center> <Typography className='quote'>“Don’t judge each day by the harvest you reap but by the seeds that you plant.”
           - Robert Louis Stevenson</Typography></center>
         </Box>
+
         <form className='input' noValidate autoComplete="off">
-        
-
-          <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
-          <div className='bg' style={{
-            display: 'right',
-            alignItems: 'right',
-            flexWrap: 'right',
-          }} >
-            <form className='input' noValidate autoComplete="off">
-
-              <TextField id="projectName" variant="filled" label="Project Name" name="projectName"
+          <form noValidate autoComplete="off">
+              <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
+              <TextField className = 'projectNameText' id="projectName" variant="filled" label="Project Name" name="projectName"
                 autoComplete="projectName"
                 onChange={this.handleChange}
                 value={this.state.projectName} />
-
              
                 <Typography className='promptStatementright'><b>What is your estimated Deadline?</b></Typography>
                 <TextField id="deadline" variant="filled" label="MM/DD/YYYY" name="deadline" className = "inputright"
@@ -138,9 +128,8 @@ class newprj extends Component {
                   onChange={this.handleChange}
                   value={this.state.deadline} />
             </form>
-          </div>
 
-          <Typography className='promptStatementcenter'><b>Tell us a bit about your project!</b></Typography>
+          <Typography className='promptStatementcenter'><center><b>Tell us a bit about your project!</b></center></Typography>
           <form  noValidate autoComplete="off">
             <TextField id="projectDesc"
               label="Project Description"
@@ -148,27 +137,26 @@ class newprj extends Component {
               multiline
               rows={4}
               className='biginput'
-              //defaultValue="Project description" 
+              //defaultValue="Project description"
               name="projectDesc"
               onChange={this.handleChange}
               value={this.state.projectDesc} />
               </form>
           </form>
-         <div>
-          <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
+
+        <Box className="subHeading">
+          <header><center>Get started, add your first task below!</center></header>
+        </Box>
+
         <Newtask /><center>
-            <Button variant="contained">
+            <Button className="addTask" variant="contained">
               Add another task
-                    </Button></center> 
-
-          <Button className='donebutton' id='done ' onClick={this.handleChange} variant="contained">Done Adding Tasks</Button>
+                    </Button></center>
     
-          <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
-            className='submitbutton'
+          <Button className='submitbutton' id='done ' type='add' variant="contained"
             onClick={this.handleClick} >Submit Project!</Button>
-
-          </div>
-        </div> 
+        <div><Box className='bottomBox'/></div>
+      </div>
         );
 
         }

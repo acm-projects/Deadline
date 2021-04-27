@@ -8,7 +8,7 @@ import "../App.css"
 const ColorButton = withStyles((theme) => ({
     root: {
         color: 'black',
-        backgroundColor:'#F05454',
+        backgroundColor:'#f05454',
         fontFamily: 'Magra',
         fontSize: '22px',
         marginTop: '40px',
@@ -29,9 +29,11 @@ export default function CustomizedButtons() {
                 </ColorButton>
                 </a>
                 <img className="logo" src={logo} alt="Image cannot be loaded" />
+                <a style={{textDecorationLine:'none'}} href="/newproject">
                 <ColorButton className='styles'>
                     Log In
                 </ColorButton>
+                </a>
             </center>
         </div>
     );
