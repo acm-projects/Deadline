@@ -21,7 +21,8 @@ export default class Calendar extends Component {
             taskName: "",
             taskDeadline: "",
             weekendsVisible: true,
-            currentEvents: []
+            currentEvents: [],
+            events: []
         };
     }
 
@@ -30,45 +31,62 @@ export default class Calendar extends Component {
 
         var axios = require('axios');
         var events = [];
-
         var config = {
         method: 'get',
         url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
         headers: { }
         };
 
+        var self = this;
+        var count = 0;
         axios(config)
         .then(function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 
                 var x = 0;
-                var currentTask = response.data[i].tasks[x];
+                
+                var seconds, convertedDate, year, month, day, formattedDate;
+                
+                if(response.data[i].tasks != null && response.data[i].tasks[x].deadline != null)
+                    var currentTask = response.data[i].tasks[x];    
 
                 while (currentTask != undefined) {
+                        convertedDate = new Date(Date.UTC(1970, 0, 1));
+                        seconds = currentTask.deadline._seconds;
+                        convertedDate.setSeconds(seconds);
+
+                        year = convertedDate.getUTCFullYear() ;
+                        month = convertedDate.getUTCMonth() + 1;
+                        day = convertedDate.getUTCDate();
+
+                        if(month < 10) {
+                            formattedDate = year + "-" + '0' + month + "-" + day;
+                        } else {
+                            formattedDate = year + "-"  + month + "-" + day;
+                        }
+
                         events.push({ 
-                        name: currentTask.name, 
-                        deadline: currentTask.deadline
+                        id: count,
+                        title: currentTask.name, 
+                        date: formattedDate
                        });
 
                        x++;
-                       currentTask = response.data[i].tasks[x];
-                }
+                       count++;
+                       currentTask = response.data[i].tasks[x];      
+                }  console.log(events);
            }
-           console.log(events)
-           renderEventContent(events);
+          self.setState({ currentEvents: events });
+    
+          console.log(self.state.currentEvents)
+          renderEventContent(self.state.currentEvents);
         })
         .catch(function (error) {
             console.log(error);
         });
 
-        this.setState({
-            projectLoading: false
-        });
-        
-        console.log(events)
+        this.setState({ projectLoading: false });
       };
-
-   
 
     renderSidebar() {
         return (
@@ -115,11 +133,12 @@ export default class Calendar extends Component {
      render() {
         const { classes } = this.props;
         const { errors, projectLoading } = this.state;
+        //{this.renderSidebar()} //move back to the return
         return (
             <div className='general'>
-                {this.renderSidebar()}
+                
                 <div className="test">
-                    <FullCalendar
+                    <FullCalendar               
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                         headerToolbar={{
                             left: 'prev,next today',
@@ -133,9 +152,21 @@ export default class Calendar extends Component {
                         dayMaxEvents={true}
                         weekends={this.state.weekendsVisible}
                         select={this.handleDateSelect}
+                        //events={this.state.currentEvents}
+                        
+                        events={[
+                            { title: 'wireframes', date: "2021-04-04"},
+                            { title: 'presentation prep', start: '2021-04-12T00:00:00', end: '2021-04-12T05:00:00' },
+                            { title: 'the wall functionality', date:'2021-04-16' },
+                            { title: 'integrate backend with frontend', date:'2021-04-20' },
+                            { title: 'homepage UI improvement', date:'2021-04-26' },
+                            { title: 'meet with team', start: '2021-04-29T00:00:00', end: '2021-04-29T05:00:00' }
+                          ]}
+                          
                         eventContent={renderEventContent} // custom render function
                         eventClick={this.handleEventClick}
-                        eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+                        
+                        //eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
                         /* you can update a remote database when these fire:
                         eventAdd={function(){}}
                         eventChange={function(){}}
@@ -151,17 +182,16 @@ export default class Calendar extends Component {
 function renderEventContent(eventInfo) {
     return (
         <>
-            <b>{eventInfo}</b>
-            <i>{eventInfo}</i>
+            <b>{eventInfo.event._def.title}</b>
         </>
     )
 }
 
-function renderSidebarEvent(event) {
+function renderSidebarEvent(event) { 
     return (
-        <li key={event.id}>
-            <b>{formatDate(event.deadline, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-            <i>{'  ' + event.name}</i>
+        <li key = {event.id}>
+            <b>{event.title}</b>
+            <i>{'  ' + event.date}</i>
         </li>
     )
 }
