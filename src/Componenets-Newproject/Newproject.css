@@ -130,6 +130,7 @@
 }
 .slider {
     padding: 20%;
+    width: 50%;
 
 }
 .donebutton {
@@ -138,5 +139,10 @@
 }
 .submitbutton {
     left: 80%;
+    
+}
+.widthbox {
+    width: 10%;
+    padding-left: 10px;
     
 }
