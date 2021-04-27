@@ -35,6 +35,7 @@ export default class Calendar extends Component {
         url: 'http://localhost:5000/deadline-17bb4/us-central1/api/projects',
         headers: { }
         };
+        
         var self = this;
         var count = 0;
         axios(config)
@@ -44,9 +45,9 @@ export default class Calendar extends Component {
                 var x = 0;
                 
                 var seconds, convertedDate, year, month, day, formattedDate;
+                console.log('in the then request')
                 
-                
-                if(response.data[i].tasks != null)
+                if(response.data[i].tasks != null && response.data[i].tasks[x].deadline != null)
                     var currentTask = response.data[i].tasks[x];    
 
                 while (currentTask != undefined) {
@@ -58,7 +59,11 @@ export default class Calendar extends Component {
                         month = convertedDate.getUTCMonth() + 1;
                         day = convertedDate.getUTCDate();
 
-                        formattedDate = year + "-" + '0' +month + "-" + day;
+                        if(month < 10) {
+                            formattedDate = year + "-" + '0' + month + "-" + day;
+                        } else {
+                            formattedDate = year + "-"  + month + "-" + day;
+                        }
 
                         events.push({ 
                         id: count,
@@ -72,6 +77,8 @@ export default class Calendar extends Component {
                 }  
            }
           self.setState({ currentEvents: events });
+          console.log('test');
+          console.log(self.state.currentEvents)
           renderEventContent(self.state.currentEvents);
         })
         .catch(function (error) {
@@ -131,7 +138,6 @@ export default class Calendar extends Component {
                 {this.renderSidebar()}
                 <div className="test">
                     <FullCalendar               
-                        
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                         headerToolbar={{
                             left: 'prev,next today',
@@ -146,6 +152,16 @@ export default class Calendar extends Component {
                         weekends={this.state.weekendsVisible}
                         select={this.handleDateSelect}
                         events={this.state.currentEvents}
+                        /*
+                        events={[
+                            { title: 'wireframes', date: "2021-04-04"/*start: '2021-04-04T00:00:00', end: '2021-04-04T05:00:00'},
+                            { title: 'presentation prep', start: '2021-04-12T00:00:00', end: '2021-04-12T05:00:00' },
+                            { title: 'the wall functionality', start: '2021-04-16T00:00:00', end: '2021-04-16T05:00:00' },
+                            { title: 'integrate backend with frontend', start: '2021-04-20T00:00:00', end: '2021-04-20T05:00:00' },
+                            { title: 'homepage UI improvement', start: '2021-04-26T00:00:00', end: '2021-04-26T05:00:00' },
+                            { title: 'meet with team', start: '2021-04-29T00:00:00', end: '2021-04-29T05:00:00' }
+                          ]}*/
+                          
                         eventContent={renderEventContent} // custom render function
                         eventClick={this.handleEventClick}
                         
@@ -163,10 +179,10 @@ export default class Calendar extends Component {
 }
 
 function renderEventContent(eventInfo) {
+    console.log(eventInfo)
     return (
         <>
-            <b>{eventInfo.timeText}</b>
-            <i>{eventInfo.date}</i>
+            <b>{eventInfo.event._def.title}</b>
         </>
     )
 }
