@@ -105,8 +105,9 @@ class Newtask extends Component {
               />
                       
         </form>
-<Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
-        <FormControl fullWidth variant="outlined" margin="dense">
+
+<Typography className='inputTextYo'><b>2. What kind of task is it?</b></Typography>
+        <FormControl className='widthbox' variant="outlined" margin="dense">
                       <InputLabel>Task Type</InputLabel>
                       <Select
                         label="Task Type"
@@ -131,12 +132,12 @@ class Newtask extends Component {
                         </MenuItem>
                       </Select>
                     </FormControl>
-    <Typography id="discrete-slider-small-steps" gutterBottom>
-        Difficulty Scale
-      </Typography>
-    
+
+    <div className="difficulty">
+      Difficulty Scale
+    </div>
       <Slider
-        defaultValue={0.5}
+        defaultValue={1}
         //getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-steps"
         step={1}
@@ -145,10 +146,10 @@ class Newtask extends Component {
         max={5}
         valueLabelDisplay="auto"
         id="difficulty-slider"
-        className ='slider'
+        className ='widthbox1'
+        style={{ maxWidth: 200 }}
       />
-    
-                </div>      
+            </div>
         );
 }
 }

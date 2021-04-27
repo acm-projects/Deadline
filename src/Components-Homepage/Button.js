@@ -8,7 +8,7 @@ import "../App.css"
 const ColorButton = withStyles((theme) => ({
     root: {
         color: 'black',
-        backgroundColor:'#F05454',
+        backgroundColor:'#f05454',
         fontFamily: 'Magra',
         fontSize: '22px',
         marginTop: '40px',
