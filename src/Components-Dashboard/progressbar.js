@@ -10,17 +10,21 @@ import "./progressbar.css";
 
 function LinearProgressWithLabel(props) {
     return (
+      
       <Box display="flex" alignItems="center"  color="green" padding="20px">
        <Typography className="statustext">Progress made so far:</Typography> 
-        <Box width="50%" mr={1} >
+       <Box width="50%" mr={1} >
           <LinearProgress color="primary" variant="determinate" {...props}  />
         </Box>
+        
         <Box minWidth={35} >
           <Typography  variant="body2" color="textSecondary">{`${Math.round(
             props.value,
           )}%`}</Typography>
         </Box>
+      
       </Box>
+
     );
   }
   
