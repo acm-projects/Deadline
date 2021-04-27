@@ -30,11 +30,10 @@
 .today3 {
     position: absolute;
     top: 260px;
-    left: 528px;
+    left: 27.5%;
     background-color: #6fbdb7;
     width: 20%;
     height: 200px;
-    right:77.5%;
     font-size: 20px;
     font-family: Magra, sans-serif;
     color: black;

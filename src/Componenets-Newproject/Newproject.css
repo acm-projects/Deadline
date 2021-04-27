@@ -1,14 +1,3 @@
-.bg{
-    background-color: #EEE9E9;
-    height: 50%;
-}
-.bgright{
-    background-color: #EEE9E9;
-    height: 50%;
-   right: 50%;
-  
-}
-
 .headerPrompt {
     position: center;
     font-family: Raleway, sans-serif;
@@ -20,107 +9,120 @@
    
 }
 .subHeading {
-    position: center;
+    position: absolute;
     font-family: Raleway, sans-serif;
     font-size: 36px;
     color: black;
-    height: 40%;
-    padding: 1%;
-    vertical-align: center;
-    line-height: 1.5;
+    width: 100%;
+    max-height: 70px;
     background-color: #2d6665b4;
-   
+    top: 630px;
 }
+
 .promptStatement {
     font-size: x-large;
     color: black;
-    padding-top: 0px;
-    padding-left: 10px;
+    column-span: initial;
+    left:10%;
+    top: 230px;
+    position: absolute;
     font-weight: bold;
     font-family: Raleway, sans-serif;
-    
 }
+
 .promptStatementcenter {
     font-size: x-large;
     color: black;
-    padding-top: 0px;
-    padding-left: 39%;
+    left: 40%;
     font-weight: bold;
     font-family: Raleway, sans-serif;
-    
+    top: 400px;
+    position: absolute;
+    height: 20px;
 }
 .promptStatementright {
     font-size: x-large;
     color: black;
-   
     column-span: initial;
-    left:69%;
-    top: 230px;
+    left:75.8%;
+    top: 250px;
     position: absolute;
     font-weight: bold;
-    font-family: Raleway, sans-serif;   
-   
+    font-family: Raleway, sans-serif;
+}
+
+.projectNameText {
+    font-size: x-large;
+    color: black;
+    column-span: initial;
+    left:10%;
+    position: absolute;
+    font-weight: bold;
+    font-family: Raleway, sans-serif;
+    top: 70px;
 }
 
 .input {
     font-size: 20px;
     color: black;
     padding: 2px;
-    
+
 }
 .inputText {
     font-size: 20px;
     color: black;
     padding: 10px;
     column-span: initial;
-    
+    position: absolute;
+    top: 715px;
+    left: 10%;
 }
 .inputText1 {
     font-size: 20px;
     color: black;
     padding: 10px;
-    
-    
 }
+
+.inputTextYo {
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    column-span: initial;
+    position: absolute;
+    top: 725px;
+    left: 78%;
+}
+
 .inputTextformat {
     font-size: 20px;
     color: black;
     padding: 10px;
     top: 75%;
     position: relative;
-    
 }
 
 .inputright {
     font-size: 20px;
-    color: red;
-    
-    left: 60%;
-    
-  
+    left: 63%;
     font-family: Magra, sans-serif;
     color: black;
-    
     position: absolute;
-  
+    top: 70px;
     
 }
 .biginput {
     font-size: 20px;
     color: black;
-   padding-bottom: 20px;
-   padding-right: 10px;
-   left: 5%;
-   width: 80%;
-   
-    
+    padding-bottom: 20px;
+    padding-right: 10px;
+    left: 10%;
+    width: 80%;
+    top: 180px;
 }
 .inputBox {
     font-size: 20px;
     color: black;
-    
     column-span: initial;
-    
 }
 
 .quote {
@@ -131,18 +133,47 @@
 .slider {
     padding: 20%;
     width: 50%;
+}
 
-}
-.donebutton {
-    color: red;
-    left: 5%;
-}
 .submitbutton {
-    left: 80%;
-    
+    left: 65%;
+    position: absolute;
+    top: 550px;
 }
+
 .widthbox {
     width: 10%;
     padding-left: 10px;
-    
+    position: absolute;
+    top: 375px;
+    left: 79%;
+}
+
+.widthbox1 {
+    width: 10%;
+    left: 10%;
+    position: absolute;
+    top: 425px;
+}
+
+.difficulty {
+    position: absolute;
+    top: 850px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    left: 11%;
+}
+
+.addTask {
+    position: absolute;
+    right: 20%;
+    top: 585px;
+}
+
+.bottomBox {
+    height: 100px;
+    background-color: #30475E;
+    position: relative;
+    top:650px;
 }

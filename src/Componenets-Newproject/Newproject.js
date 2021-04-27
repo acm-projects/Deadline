@@ -17,8 +17,8 @@ import Newtask from './Newtask';
 import { withStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import classNames from "classnames";
-import { FormControl, FormControlLabel, InputLabel, Select} from "@material-ui/core";
 //import { firestore } from "./firestore"
+import { FormControl, FormControlLabel, InputLabel, Select} from "@material-ui/core";
 
 class newprj extends Component {
 
@@ -32,9 +32,11 @@ class newprj extends Component {
       deadline: "",
       tasks: [],
       tempTasks: [],
-      complexity: ""
+      complexity: "",
+      type: ""
     };
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.UI != undefined) {
       if (nextProps.UI.errors) {
@@ -64,8 +66,9 @@ class newprj extends Component {
       projectName: this.state.projectName,
       projectDesc: this.state.projectDesc,
       deadline: this.state.deadline,
-      tasks: this.state.tasks,
+      tasks: this.state.tasks
     };
+
     axios
       .post(
         "http://localhost:5000/deadline-17bb4/us-central1/api/project",
@@ -94,9 +97,10 @@ class newprj extends Component {
     this.state.tempTasks.push({
       name: this.state.tasks,
       status: "Next Up",
-      type: this.state.type,
-      complexity: complexityInt
+      complexity: complexityInt,
+      type: this.state.type
     })
+
     var tempTasks2 = this.state.tempTasks;
     this.setState({tasks: []})
     this.setState({tasks: tempTasks2})
@@ -125,31 +129,21 @@ class newprj extends Component {
 
     return (
 
-      <div class='bg'>
+      <div>
         <DenseAppBar />
-
-
         <Box className="newprojectToolbar" color='red'>
           <header className='headerPrompt'><center>Welcome! Let's get you started</center></header>
           <center> <Typography className='quote'>“Don’t judge each day by the harvest you reap but by the seeds that you plant.”
           - Robert Louis Stevenson</Typography></center>
         </Box>
+
         <form className='input' noValidate autoComplete="off">
-        
-
-          <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
-          <div className='bg' style={{
-            display: 'right',
-            alignItems: 'right',
-            flexWrap: 'right',
-          }} >
-            <form className='input' noValidate autoComplete="off">
-
-              <TextField id="projectName" variant="filled" label="Project Name" name="projectName"
+          <form noValidate autoComplete="off">
+              <Typography className='promptStatement'><b>What is the name of your project?</b></Typography>
+              <TextField className = 'projectNameText' id="projectName" variant="filled" label="Project Name" name="projectName" 
                 autoComplete="projectName"
                 onChange={this.handleChange}
                 value={this.state.projectName} />
-
              
                 <Typography className='promptStatementright'><b>What is your estimated Deadline?</b></Typography>
                 <TextField id="deadline" variant="filled" label="MM/DD/YYYY" name="deadline" className = "inputright"
@@ -157,9 +151,8 @@ class newprj extends Component {
                   onChange={this.handleChange}
                   value={this.state.deadline} />
             </form>
-          </div>
 
-          <Typography className='promptStatementcenter'><b>Tell us a bit about your project!</b></Typography>
+            <Typography className='promptStatementcenter'><b>Tell us a bit about your project!</b></Typography>
           <form  noValidate autoComplete="off">
             <TextField id="projectDesc"
               label="Project Description"
@@ -173,9 +166,12 @@ class newprj extends Component {
               value={this.state.projectDesc} />
               </form>
           </form>
-         <div>
-          <header className='subHeading' fontcolor='black'><center>Get started, add your first task below!</center></header>
-          <div className='bg' >
+
+        <Box className="subHeading">
+          <header><center>Get started, add your first task below!</center></header>
+        </Box>
+
+        <div>
         <form className='inputText' noValidate autoComplete="off">
         <Typography className='inputText1'><b>1. Task Name</b></Typography>
              <TextField id="tasks" variant="filled" label="Task Name" name="tasks"
@@ -184,38 +180,38 @@ class newprj extends Component {
               />
                       
         </form>
-<Typography className='inputText'><b>2. What kind of task is it?</b></Typography>
-        <FormControl fullWidth variant="outlined" margin="dense">
-                      <InputLabel>Task Type</InputLabel>
-                      <Select
-                        label="Task Type"
-                        name="taskType"
-                        value={this.state.type}
-                        onChange={this.handleChange}
-                      >
-                        <MenuItem selected value="Coding">
-                          Coding
-                        </MenuItem>
-                        <MenuItem value="Presentation">
-                          Presentation
-                        </MenuItem>
-                        <MenuItem value="Writing">
-                          Writing
-                        </MenuItem>
-                        <MenuItem value="Design">
-                          Design
-                        </MenuItem>
-                        <MenuItem value="Other">
-                          Other
-                        </MenuItem>
-                      </Select>
-                    </FormControl>
-   {/* <Typography id="discrete-slider-small-steps" gutterBottom>
-        Difficulty Scale
-      </Typography>
-    
+<Typography className='inputTextYo'><b>2. What kind of task is it?</b></Typography>
+        <FormControl className='widthbox' variant="outlined" margin="dense">
+              <InputLabel>Task Type</InputLabel>
+              <Select
+                label="Task Type"
+                name="taskType"
+                value={this.state.taskType}
+                onChange={this.handleChange}
+              >
+                <MenuItem selected value="Coding">
+                  Coding
+                </MenuItem>
+                <MenuItem value="Presentation">
+                  Presentation
+                </MenuItem>
+                <MenuItem value="Writing">
+                  Writing
+                </MenuItem>
+                <MenuItem value="Design">
+                  Design
+                </MenuItem>
+                <MenuItem value="Other">
+                  Other
+                </MenuItem>
+              </Select>
+            </FormControl>
+      
+    {/*<div className="difficulty">
+      Difficulty Scale
+    </div>
       <Slider
-        defaultValue={0.5}
+        defaultValue={1}
         //getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-steps"
         step={1}
@@ -224,34 +220,28 @@ class newprj extends Component {
         max={5}
         valueLabelDisplay="auto"
         id="difficulty-slider"
-        className ='slider'
-        getAriaValueText={valuetext} 
-        onChange={this.handleChange}
-        valuetext={this.state.tasks}
-
-        />*/}
-        <form className='input' noValidate autoComplete="off">
-        <Typography className='input'><b>3. Task Complexity</b></Typography>
-             <TextField id="complexity" variant="filled" label="Task Complexity" name="complexity"
+        className ='widthbox1'
+        style={{ maxWidth: 200 }}
+      />*/}
+       <form className='input' noValidate autoComplete="off">
+        <Typography className='difficulty'><b>3. Task Complexity</b></Typography>
+             <TextField className='widthbox1' id="complexity" variant="filled" label="Task Complexity" name="complexity"
               onChange={this.handleChange}
               value={this.state.complexity}
               />
         </form>
-
-                </div>      
-       <center>
-            <Button variant="contained" onClick={this.handleTasks}>
+    </div>
+        
+        
+        <center>
+            <Button className="addTask" variant="contained" onClick={this.handleTasks} >
               Add another task
-                    </Button></center> 
-
-          <Button className='donebutton' id='done ' variant="contained">Done Adding Tasks</Button>
+                    </Button></center>
     
-          <Button className='submitbutton' id='done ' type='add' variant="contained" colour="primary"
-            className='submitbutton'
+          <Button className='submitbutton' id='done ' type='add' variant="contained"
             onClick={this.handleClick} >Submit Project!</Button>
-
-          </div>
-        </div> 
+        <div><Box className='bottomBox'/></div>
+      </div>
         );
 
         }

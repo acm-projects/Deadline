@@ -85,7 +85,9 @@ export default function Dashboard() {
                   </Typography></Box>
              <Box className="external"><center>External Resources</center></Box>
              <Box className="externalcontent">
-             <img className="logogit" src={logo} alt="Image cannot be loaded" />
+                 <a href="https://github.com/">
+             <img className="logogit" src={logo} alt="Application cannot be loaded" />
+                 </a>
              </Box>
              </div>  
              <div className="bottomSection">
