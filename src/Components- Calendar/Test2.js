@@ -21,7 +21,8 @@ export default class Calendar extends Component {
             taskName: "",
             taskDeadline: "",
             weekendsVisible: true,
-            currentEvents: []
+            currentEvents: [],
+            events: []
         };
     }
 
@@ -132,9 +133,10 @@ export default class Calendar extends Component {
      render() {
         const { classes } = this.props;
         const { errors, projectLoading } = this.state;
+        //{this.renderSidebar()} //move back to the return
         return (
             <div className='general'>
-                {this.renderSidebar()}
+                
                 <div className="test">
                     <FullCalendar               
                         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -153,7 +155,7 @@ export default class Calendar extends Component {
                         //events={this.state.currentEvents}
                         
                         events={[
-                            { title: 'wireframes', date: "2021-04-04"/*start: '2021-04-04T00:00:00', end: '2021-04-04T05:00:00'*/},
+                            { title: 'wireframes', date: "2021-04-04"},
                             { title: 'presentation prep', start: '2021-04-12T00:00:00', end: '2021-04-12T05:00:00' },
                             { title: 'the wall functionality', date:'2021-04-16' },
                             { title: 'integrate backend with frontend', date:'2021-04-20' },

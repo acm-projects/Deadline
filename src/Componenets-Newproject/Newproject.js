@@ -30,7 +30,8 @@ class newprj extends Component {
       projectName: "",
       projectDesc: "",
       deadline: "",
-      tasks: []
+      tasks: [],
+      tempTasks: []
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -87,17 +88,15 @@ class newprj extends Component {
   };
 
   handleTasks = (event) => {
-    var tempTasks = [];
-    
-    tempTasks.push({
+    this.state.tempTasks.push({
       name: this.state.tasks,
       status: "Next Up",
       complexity: 5
     })
-
-    this.setState({tasks: tempTasks})
-    
-    
+    var tempTasks2 = this.state.tempTasks;
+    this.setState({tasks: []})
+    this.setState({tasks: tempTasks2})
+    console.log(this.state.tasks)
   };
 
   ColorButton = withStyles((theme) => ({
@@ -230,7 +229,7 @@ class newprj extends Component {
     
                 </div>      
        <center>
-            <Button variant="contained">
+            <Button variant="contained" onClick={this.handleTasks}>
               Add another task
                     </Button></center> 
 
