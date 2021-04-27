@@ -105,7 +105,6 @@ class Newtask extends Component {
               />
                       
         </form>
-
 <Typography className='inputTextYo'><b>2. What kind of task is it?</b></Typography>
         <FormControl className='widthbox' variant="outlined" margin="dense">
                       <InputLabel>Task Type</InputLabel>
