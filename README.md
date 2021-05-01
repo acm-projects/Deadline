@@ -51,3 +51,27 @@ Look through all of these resources at the beginning of the semester!
 -   [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 -	[Getting started with React](https://reactjs.org/docs/getting-started.html)
 -	[Comparing top databases](https://dzone.com/articles/firebase-vs-mongodb-which-database-to-use-for-your)
+
+### The Team
+
+Project Manager: 
+
+• Cady Baltz - [GitHub](https://github.com/cadybaltz) | [LinkedIn](https://www.linkedin.com/in/cadybaltz/)
+
+Industry Mentor:
+
+• Alex Dometrius - [LinkedIn](https://www.linkedin.com/in/alexdometrius/)
+
+Participants:
+
+• Abhitej Arora - Frontend - [GitHub](https://github.com/AbhitejArora) | [LinkedIn](https://www.linkedin.com/in/abhitejarora/)
+
+• Lac Ngo - Frontend - [GitHub](https://github.com/lacjnhi) | [LinkedIn](https://www.linkedin.com/in/lacnhingo/)
+
+• Te'a Washington - Backend - [GitHub](https://github.com/tewashi) | [LinkedIn](https://www.linkedin.com/in/te-a-washington-0b2b761b8/)
+
+• Anh Nguyen - Backend - [GitHub](https://github.com/stpngyun1902) | [LinkedIn](https://www.linkedin.com/in/anhnguyen1902/)
+
+### Acknowledgements
+[ACM UTD](https://www.acmutd.co/)
+
