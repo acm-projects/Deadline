@@ -70,7 +70,7 @@ Participants:
 
 • Te'a Washington - Backend - [GitHub](https://github.com/tewashi) | [LinkedIn](https://www.linkedin.com/in/te-a-washington-0b2b761b8/)
 
-• Anh Nguyen - Backend - [GitHub](https://github.com/stpngyun1902) | [LinkedIn](https://www.linkedin.com/in/anhnguyen1902/)
+• Anh Nguyen - Backend - [GitHub](https://github.com/koisaai) | [LinkedIn](https://www.linkedin.com/in/anhnguyen1902/)
 
 ### Acknowledgements
 [ACM UTD](https://www.acmutd.co/)
