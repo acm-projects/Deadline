@@ -2,7 +2,7 @@
 ### Overview
 *Deadline* is an application that allows you to conquer your next programming project by creating automatically generated development lifecycle schedules
 
-#### Link to the [slide deck!](https://docs.google.com/presentation/d/11xFU-2aWDOfYbO9vCmPWhxl9KrpGjMv8Ff68yU8WVog/edit?usp=sharing).
+#### Link to the [slide deck!](https://docs.google.com/presentation/d/11xFU-2aWDOfYbO9vCmPWhxl9KrpGjMv8Ff68yU8WVog/edit?usp=sharing)
 
 ### How To Deadline
 1. Welcome To Deadline! First let's clone the directory ([Instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)) at your desired location and then open the IDE of your choice.
@@ -43,10 +43,10 @@ Essential Features:
 3. Created the algorithm to automatically schedule tasks based on task complexity
 4. Integrated the database with the app to give it full functionality
 #### Algorithm to Automatically Schedule Tasks
-- calculate the duration of the project
-- traverse all of the tasks in the project and add all of their complexities together
-- for every task, calculate the percentage of time needed by dividing its complexity by the project complexity
-- set the task deadline
+- Calculate the duration of the project
+- Traverse all of the tasks in the project and add all of their complexities together
+- For every task, calculate the percentage of time needed by dividing its complexity by the project complexity
+- Set the task deadline
 
 ### Potential Stretch Goals
 ##### Can be worked in the future
