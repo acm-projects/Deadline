@@ -54,9 +54,9 @@ Essential Features:
     - Integrate with GitHub using the [GitHub API](https://docs.github.com/en/free-pro-team@latest/rest)
     - Social feature that allows you to show off your progress to other users of the app
  - Create a mobile app
-    - To give push notifications about the project and upcoming deadlines
-    - To stay on track with small tasks
-    - Keep in touch with team
+    - To give push notifications about the project and upcoming deadlines.
+    - To stay on track with small tasks and submissions.
+    - Keep track of team's progress and assigned work!
     
 ### Tech Stack
 ##### Frontend
