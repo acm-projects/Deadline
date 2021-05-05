@@ -7,7 +7,7 @@
 ### How To Deadline
 1. Welcome To Deadline! First let's clone the directory ([Instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)) at your desired location and then open the IDE of your choice.
 2. Open a new terminal and cd to the cloned directory.
-3. Give the command "npm install" and then "firebase serve". Note: You would like to make your own database. Backend add more. 
+3. Give the command "npm install" and then "firebase serve". Note: You might want to create your Google Firebase Console, create your new project. After that, in your IDE, open 2 terminal and run firebase serve and npm start at the same time.
 4. Give the command "npm start".
 5. Now once the web page is loaded on the local host, you should be directed to the Home Page!
 6. Click on "New Project" button to get started or navigate through the options in the Nav Bar.
