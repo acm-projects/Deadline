@@ -71,8 +71,7 @@ Essential Features:
 ##### Frontend
 - [React](https://reactjs.org/)
 ##### Backend
-###### Potential NoSQL Databases
-- [MongoDB](mongodb.com)
+###### NoSQL Databases
 - [Firebase](https://firebase.google.com/)
 ### Software
 - [Git Bash](https://git-scm.com/downloads)
