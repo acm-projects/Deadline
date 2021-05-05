@@ -16,6 +16,16 @@
 9. That's it! You are all set to use this great tool and keep on top on your tasks.
 10. That being said, if you are ever short on time, use Deadline!
 
+### Minimum viable product
+An app that allows you to input different projects, tasks associated with each project, and then uses this information to automatically generate a dynamic project schedule
+Essential Features:
+- List tasks, assign estimated timelines for each task, and include any dependencies that exist between tasks
+- With this information, it automatically generates a daily schedule
+  Other features:
+- “Daily standup” - App checks in each day and you input your progress
+- Automatically adjusts schedule according to progress made
+- Creates *aesthetic* graphs depicting project progress for motivation
+- Ability to invite other users to your project
 ### Steps we took
 
 #### Frontend
@@ -27,17 +37,16 @@
 5. An important library we used was [FullCalendar](https://fullcalendar.io), to get the current date and calendar view.
 6. Then we made everything look a bit prettier across different browser and dimension settings!
 
-
-### Minimum viable product
-An app that allows you to input different projects, tasks associated with each project, and then uses this information to automatically generate a dynamic project schedule
-Essential Features:
-- List tasks, assign estimated timelines for each task, and include any dependencies that exist between tasks
-- With this information, it automatically generates a daily schedule
-  Other features:
-- “Daily standup” - App checks in each day and you input your progress
-- Automatically adjusts schedule according to progress made
-- Creates *aesthetic* graphs depicting project progress for motivation
-- Ability to invite other users to your project
+### Backend
+1. Learned how to use Firebase Firestore to store data
+2. Learned to use the axios library to transfer information between the app and database
+3. Created the algorithm to automatically schedule tasks based on task complexity
+4. Integrated the database with the app to give it full functionality
+### Algorithm to Automatically Schedule Tasks
+- calculate the duration of the project
+- traverse all of the tasks in the project and add all of their complexities together
+- for every task, calculate the percentage of time needed by dividing its complexity by the project complexity
+- set the task deadline
 
 ### Potential Stretch Goals
 ##### Can be worked in the future
