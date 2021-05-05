@@ -37,12 +37,12 @@ Essential Features:
 5. An important library we used was [FullCalendar](https://fullcalendar.io), to get the current date and calendar view.
 6. Then we made everything look a bit prettier across different browser and dimension settings!
 
-### Backend
+#### Backend
 1. Learned how to use Firebase Firestore to store data
 2. Learned to use the axios library to transfer information between the app and database
 3. Created the algorithm to automatically schedule tasks based on task complexity
 4. Integrated the database with the app to give it full functionality
-### Algorithm to Automatically Schedule Tasks
+#### Algorithm to Automatically Schedule Tasks
 - calculate the duration of the project
 - traverse all of the tasks in the project and add all of their complexities together
 - for every task, calculate the percentage of time needed by dividing its complexity by the project complexity
