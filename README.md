@@ -1,12 +1,37 @@
 # Deadline
 ### Overview
 *Deadline* is an application that allows you to conquer your next programming project by creating automatically generated development lifecycle schedules
+
+#### Link to the [slide deck!](https://docs.google.com/presentation/d/11xFU-2aWDOfYbO9vCmPWhxl9KrpGjMv8Ff68yU8WVog/edit?usp=sharing).
+
+### How To Deadline
+1. Welcome To Deadline! First let's clone the directory ([Instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)) at your desired location and then open the IDE of your choice.
+2. Open a new terminal and cd to the cloned directory.
+3. Give the command "npm install" and then "firebase serve". Note: You would like to make your own database. Backend add more. 
+4. Give the command "npm start".
+5. Now once the web page is loaded on the local host, you should be directed to the Home Page!
+6. Click on "New Project" button to get started or navigate through the options in the Nav Bar.
+7. Once you have imported the project, you should be able to view the calendar with the assigned deadlines for each task you added based on the complexities. 
+8. Navigate through the Wall, dashboard and the calendar page to view your project in the respective formats.
+9. That's it! You are all set to use this great tool and keep on top on your tasks.
+10. That being said, if you are ever short on time, use Deadline!
+
+### Steps we took
+
+#### Frontend
+
+1. Learned about React through this [tutorial](https://reactjs.org/tutorial/tutorial.html#setup-for-the-tutorial).
+2. Learned more about the MaterialUI and Bootstrap libraries and decided to go with MaterialUI! Good choice there
+3. Developed our home page after learning about React and MateriaUI and how they work together through these links. [React Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=2420s) and [MaterialUI](https://www.youtube.com/watch?v=-XKaSCU0ZLM).
+4. Once the home page was coded and setup, delegated different pages amongst the two of us (Lac and Abhitej) and then worked on the Calendar, The Wall and the Dashboard.
+5. An important library we used was [FullCalendar](https://fullcalendar.io), to get the current date and calendar view.
+6. Then we made everything look a bit prettier across different browser and dimension settings!
+
+
 ### Minimum viable product
 An app that allows you to input different projects, tasks associated with each project, and then uses this information to automatically generate a dynamic project schedule
 Essential Features:
 - List tasks, assign estimated timelines for each task, and include any dependencies that exist between tasks
-- Choose what you want to optimize for: Quality, Speed, achieving MVP
-- Uses different PM techniques to schedule tasks based on what you choose
 - With this information, it automatically generates a daily schedule
   Other features:
 - “Daily standup” - App checks in each day and you input your progress
@@ -15,7 +40,7 @@ Essential Features:
 - Ability to invite other users to your project
 
 ### Potential Stretch Goals
-##### Can be chosen by team
+##### Can be worked in the future
 - Use *machine learning* to predict how long a task will take the user, based on their previous experience
     - E.g. If they estimated a task would take 5 days in the past, and it actually takes 8 days, the next time the user estimates 5 days, the app will schedule that task to take 8 days
     - Could make the model more complex by incorporating the category of the task (e.g. coding tasks tend to take longer than writing tasks)
@@ -28,6 +53,10 @@ Essential Features:
     - Automatically analyzes code quality and slows down the schedule if it’s determined to be low
     - Integrate with GitHub using the [GitHub API](https://docs.github.com/en/free-pro-team@latest/rest)
     - Social feature that allows you to show off your progress to other users of the app
+ - Create a mobile app
+    - To give push notifications about the project and upcoming deadlines
+    - To stay on track with small tasks
+    - Keep in touch with team
     
 ### Tech Stack
 ##### Frontend
@@ -41,8 +70,6 @@ Essential Features:
     - Necessary for working with command line Git on a Windows computer
 - [Figma](https://www.figma.com/)
     - Free UX design tool that is completely web-based
-- [Adobe XD](https://www.adobe.com/products/xd.html?sdid=12B9F15S&mv=Search&ef_id=CjwKCAjwkdL6BRAREiwA-kiczGlKOD6-DASI9BUGIwQBgdAt33vydE4YxCgvMX5TDh2T5m9Trjq-jBoCFugQAvD_BwE:G:s&s_kwcid=AL!3085!3!315233774139!e!!g!!adobe%20xd!1641846436!65452675151)
-    - More sophisticated UX tool, you can have one project for free
 - [Visual Studio Code](https://code.visualstudio.com/)
     - Useful IDE with lots of plugins to make your development easier
 ### Learning Resources
@@ -75,3 +102,4 @@ Participants:
 ### Acknowledgements
 [ACM UTD](https://www.acmutd.co/)
 
+### This project won People's Choice Award for ACM Projects in Spring 2021! Here is the YouTube link for the live [presentation](https://youtu.be/uIPrAS7mQvc?t=4888)!
